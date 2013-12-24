@@ -328,7 +328,7 @@ table {
  * `font-size` is set in `html` element to support the `rem` unit for font-sizes
  */
 html {
-  font-size: 14px;
+  font-size: 50px;
 }
 body {
   background: #ffffff;
@@ -502,33 +502,33 @@ h6 {
  */
 h1,
 .uk-h1 {
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 129px;
+  line-height: 150px;
 }
 h2,
 .uk-h2 {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 86px;
+  line-height: 108px;
 }
 h3,
 .uk-h3 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 64px;
+  line-height: 85px;
 }
 h4,
 .uk-h4 {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 57px;
+  line-height: 78px;
 }
 h5,
 .uk-h5 {
-  font-size: 14px;
+  font-size: 50px;
   line-height: 20px;
 }
 h6,
 .uk-h6 {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
 }
 /* Lists
  ========================================================================== */
@@ -577,8 +577,8 @@ blockquote {
 blockquote {
   padding-left: 15px;
   border-left: 5px solid #dddddd;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 57px;
+  line-height: 78px;
 }
 /* Small print for identifying the source */
 blockquote small {
@@ -594,7 +594,7 @@ blockquote p:last-of-type {
  ========================================================================== */
 code {
   color: #514796;
-  font-size: 12px;
+  font-size: 43px;
   white-space: nowrap;
 }
 /* Reset code elements if parent of pre elements */
@@ -606,8 +606,8 @@ pre {
   padding: 10px;
   background: #f5f5f5;
   color: #8d8b9b;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
   -moz-tab-size: 4;
   tab-size: 4;
 }
@@ -1166,8 +1166,8 @@ iframe {
  ========================================================================== */
 .uk-panel-title {
   margin-bottom: 15px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 64px;
+  line-height: 85px;
   font-weight: normal;
   text-transform: none;
   color: #8d8b9b;
@@ -1294,8 +1294,8 @@ iframe {
 /* Sub-object `uk-article-title`
  ========================================================================== */
 .uk-article-title {
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 129px;
+  line-height: 150px;
   font-weight: bold;
   text-transform: none;
 }
@@ -1306,16 +1306,16 @@ iframe {
 /* Sub-object `uk-article-meta`
  ========================================================================== */
 .uk-article-meta {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
   color: #cacbd5;
 }
 /* Sub-object `uk-article-lead`
  ========================================================================== */
 .uk-article-lead {
   color: #8d8b9b;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 64px;
+  line-height: 85px;
   font-weight: normal;
 }
 /* Sub-object `uk-article-divider`
@@ -1356,15 +1356,15 @@ iframe {
  ========================================================================== */
 .uk-comment-title {
   margin: 5px 0 0 0;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 57px;
+  line-height: 78px;
 }
 /* Sub-object `uk-comment-meta`
  ========================================================================== */
 .uk-comment-meta {
   margin: 2px 0 0 0;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 39px;
+  line-height: 57px;
   color: #cacbd5;
 }
 /* Sub-object `uk-comment-body`
@@ -1422,8 +1422,8 @@ iframe {
  * Item subtitle
  */
 .uk-nav li > a > div {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
 }
 /* Sub-object: `uk-nav-header`
  ========================================================================== */
@@ -1431,7 +1431,7 @@ iframe {
   padding: 5px 15px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 43px;
 }
 .uk-nav-header:not(:first-child) {
   margin-top: 15px;
@@ -1735,7 +1735,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   line-height: 40px;
   /* 2 */
   color: #8d8b9b;
-  font-size: 14px;
+  font-size: 50px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
@@ -1774,7 +1774,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   line-height: 28px;
 }
 .uk-navbar-nav-subtitle > div {
-  margin-top: -6px;
+  margin-top: 12px;
   font-size: 10px;
   line-height: 12px;
 }
@@ -1824,7 +1824,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Sub-objects: `uk-navbar-brand`
  ========================================================================== */
 .uk-navbar-brand {
-  font-size: 18px;
+  font-size: 64px;
   color: #8d8b9b;
 }
 /*
@@ -1842,7 +1842,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Sub-object: `uk-navbar-toggle`
  ========================================================================== */
 .uk-navbar-toggle {
-  font-size: 18px;
+  font-size: 64px;
   color: #8d8b9b;
 }
 /*
@@ -2513,7 +2513,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 .uk-table caption,
 .uk-table tfoot {
-  font-size: 12px;
+  font-size: 43px;
   font-style: italic;
 }
 .uk-table caption {
@@ -2659,8 +2659,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   width: 100%;
   padding-bottom: 15px;
   /* 1 */
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 64px;
+  line-height: 106px;
 }
 /* 1 */
 .uk-form legend:after {
@@ -2674,12 +2674,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-form-small {
   height: 25px !important;
   padding: 3px 3px !important;
-  font-size: 12px;
+  font-size: 43px;
 }
 .uk-form-large {
   height: 40px !important;
   padding: 8px 6px !important;
-  font-size: 16px;
+  font-size: 57px;
 }
 /* Reset height
  * Must be after size modifiers
@@ -3002,19 +3002,19 @@ a.uk-button {
   min-height: 20px;
   padding: 0 6px;
   line-height: 20px;
-  font-size: 11px;
+  font-size: 39px;
 }
 .uk-button-small {
   min-height: 25px;
   padding: 0 10px;
   line-height: 25px;
-  font-size: 12px;
+  font-size: 43px;
 }
 .uk-button-large {
   min-height: 40px;
   padding: 0 15px;
   line-height: 40px;
-  font-size: 16px;
+  font-size: 57px;
 }
 /*
  * Behave like a block element and take the full width
@@ -4374,9 +4374,9 @@ a.uk-close:hover {
   display: inline-block;
   padding: 0 5px;
   background: #514796;
-  font-size: 10px;
+  font-size: 36px;
   font-weight: normal;
-  line-height: 14px;
+  line-height: 50px;
   color: #ffffff;
   text-align: center;
   vertical-align: middle;
@@ -4387,10 +4387,10 @@ a.uk-close:hover {
 .uk-badge-notification {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  min-width: 18px;
+  min-width: 65px;
   border-radius: 500px;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
 }
 /* Color modifier
  ========================================================================== */
@@ -4677,7 +4677,7 @@ a.uk-thumbnail:focus {
   -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease;
   /* Allow text */
-  font-size: 12px;
+  font-size: 43px;
   color: #ffffff;
   text-align: center;
 }
@@ -5693,8 +5693,8 @@ input.uk-search-field {
   /* 4 */
   background: #333333;
   color: #cacbd5;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 43px;
+  line-height: 65px;
   text-align: center;
 }
 /* Triangle
@@ -5793,12 +5793,12 @@ input.uk-search-field {
 /* Size modifiers
  ========================================================================== */
 .uk-text-small {
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 39px;
+  line-height: 57px;
 }
 .uk-text-large {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 64px;
+  line-height: 85px;
 }
 /* Weight modifiers
  ========================================================================== */
@@ -6082,8 +6082,8 @@ input.uk-search-field {
 /* Only tablets and desktops */
 @media (min-width: 768px) {
   .uk-heading-large {
-    font-size: 52px;
-    line-height: 64px;
+    font-size: 186px;
+    line-height: 229px;
   }
 }
 /* Link
