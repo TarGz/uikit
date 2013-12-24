@@ -1870,6 +1870,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-toggle {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: block;
   height: 40px;
   padding: 0 15px;
   float: left;
@@ -6079,19 +6080,19 @@ input.uk-search-field {
 /* Color modifiers
  ========================================================================== */
 .uk-text-muted {
-  color: #999999;
+  color: #999999 !important;
 }
 .uk-text-info {
-  color: #2d7091;
+  color: #2d7091 !important;
 }
 .uk-text-success {
-  color: #659f13;
+  color: #659f13 !important;
 }
 .uk-text-warning {
-  color: #e28327;
+  color: #e28327 !important;
 }
 .uk-text-danger {
-  color: #d85030;
+  color: #d85030 !important;
 }
 /* Alignment modifiers
  ========================================================================== */
@@ -6342,6 +6343,11 @@ input.uk-search-field {
 }
 .uk-margin-bottom-remove {
   margin-bottom: 0 !important;
+}
+/* Border
+ ========================================================================== */
+.uk-border-circle {
+  border-radius: 50%;
 }
 /* Headings
  ========================================================================== */
