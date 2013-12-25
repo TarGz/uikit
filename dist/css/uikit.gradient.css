@@ -1,3 +1,5 @@
+/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+
 /* ========================================================================
    Component: Normalize
  ========================================================================== */
@@ -2374,16 +2376,14 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /* Only phones */
 @media (max-width: 767px) {
-  [data-uk-tab] > li {
-    display: none;
-  }
-  [data-uk-tab] > li.uk-tab-responsive {
-    display: block;
-  }
-  [data-uk-tab] > li.uk-tab-responsive > a {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  /*    [data-uk-tab] > li { display: none; }
+
+    [data-uk-tab] > li.uk-tab-responsive { display: block; }
+
+    [data-uk-tab] > li.uk-tab-responsive > a {
+        margin-left: 0;
+        margin-right: 0;
+    }*/
 }
 /* Modifier: 'tab-center'
  ========================================================================== */
@@ -4698,8 +4698,8 @@ a.uk-close:hover {
   margin-bottom: 15px;
   padding: 10px;
   background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
 }
@@ -4747,14 +4747,14 @@ a.uk-close:hover {
 /* Modifier: `uk-alert-warning`
  ========================================================================== */
 .uk-alert-warning {
-  background: #fffceb;
-  color: #e28327;
-  border-color: rgba(226, 131, 39, 0.3);
+  background: #ff0783;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 /* Modifier: `uk-alert-danger`
  ========================================================================== */
 .uk-alert-danger {
-  background: #fff1f0;
+  background: #a3a3cf;
   color: #d85030;
   border-color: rgba(216, 80, 48, 0.3);
 }

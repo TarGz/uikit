@@ -8,15 +8,16 @@
 // ========================================================================
 
 @navbar-color:                                  @global-color;
-@navbar-link-color:                             @global-link-color;
-@navbar-link-hover-color:                       @global-link-hover-color;
+@navbar-link-color:                             @ri_violet;
+@navbar-link-hover-color:                       @ri_pink;
 
 @navbar-nav-line-height:                        @navbar-nav-height;
-@navbar-nav-color:                              @global-color;
-@navbar-nav-font-size:                          @global-font-size;
-@navbar-nav-hover-color:                        @global-color;
-@navbar-nav-onclick-color:                      @global-color;
-@navbar-nav-active-color:                       @global-color;
+@navbar-nav-color:                              @ri_violet;
+@navbar-nav-font-size:                          15px;
+@navbar-nav-hover-color:                        @ri_pink;
+@navbar-nav-onclick-color:                      @ri_violet;
+@navbar-nav-active-color:                       @ri_pink;
+
 
 @navbar-brand-font-size:                        round(@global-font-size * 1.28); // 18px
 @navbar-brand-color:                            @global-color;
@@ -27,12 +28,23 @@
 @navbar-toggle-hover-color:                     @global-color;
 
 
+// ==
+@navbar-background            :@ri_white;
+@navbar-nav-hover-background  :@ri_white;
+@navbar-nav-active-background :ri_white;
+@navbar-nav-onclick-background:ri_white;
+@navbar-nav-font-family: Open Sans;
+@navbar-nav-font-weight: 700;
+
+
+.uk-navbar-nav > li > a[href='#'] { cursor: pointer; }
+
 // Component
 // ========================================================================
 
 .hook-navbar() {
 	background:rgba(0, 0, 0, 0);
-	border-bottom: 1px dashed #000;
+	border-bottom: 0px dashed #efefef;
 }
 
 
@@ -40,16 +52,15 @@
 // ========================================================================
 
 .hook-navbar-nav() {
+	margin-top: -1px; /* 1 */
+	margin-left: -1px; /* 2 */
+	height: @navbar-nav-height + 1; /* 3 */
+	border-bottom: 2px dashed #efefef;
+	border-bottom-width: 2px;
+	text-shadow: 0 0px 0 #efefef;
 }
 
-// Hover
-.hook-navbar-nav-hover() {}
 
-// OnClick
-.hook-navbar-nav-onclick() {}
-
-// Active
-.hook-navbar-nav-active() {}
 
 
 // Sub-object: `uk-navbar-content`

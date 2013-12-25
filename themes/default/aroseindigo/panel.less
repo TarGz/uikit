@@ -25,6 +25,11 @@
 @panel-divider-border:                          @global-border;
 
 
+// ==
+
+@panel-box-secondary-title-color:               #444444;
+
+
 // Sub-object: `uk-panel-title`
 // ========================================================================
 
@@ -40,19 +45,27 @@
 // Modifier: `uk-panel-box`
 // ========================================================================
 
-.hook-panel-box() {}
+.hook-panel-box() {
+	border          : 1px dashed #dddddd;
+}
 
 //
 // Sub-modifier: `uk-panel-box-primary`
 //
 
-.hook-panel-box-primary() {}
+.hook-panel-box-primary() {
+
+}
 
 //
 // Sub-modifier: `uk-panel-box-secondary`
 //
 
-.hook-panel-box-secondary() {}
+.hook-panel-box-secondary() {
+	color           :#6a5e6d;
+	background-color: #FFF;
+
+}
 
 
 // Modifier: `uk-panel-header`

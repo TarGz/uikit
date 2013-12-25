@@ -16,6 +16,17 @@
 @tab-disabled-color:                            @global-muted-color;
 
 
+// ==
+@tab-padding-horizontal:                        6px;
+@tab-padding-vertical:                          4px;
+
+// Suprime le responsive des tabs
+
+@media (max-width: @breakpoint-small-max) {
+    [data-uk-tab] > li { display: block; }
+    [data-uk-tab] > li.uk-tab-responsive { display: none; }
+}
+
 // Component
 // ========================================================================
 
@@ -23,16 +34,26 @@
 // Items
 //
 
-.hook-tab() {}
+.hook-tab() {
+	color:@ri_violet;
+	border: 1px dashed @tab-border;
+}
 
 // Hover
 .hook-tab-hover() {}
 
 // Active
-.hook-tab-active() {}
+.hook-tab-active() {
+	color:@ri_pink;
+	border-top  : 1px solid @tab-border;
+	border-left : 1px solid @tab-border;
+	border-right: 1px solid @tab-border;
+}
 
 // Disabled
-.hook-tab-disabled() {}
+.hook-tab-disabled() {
+	border  : 0px solid @tab-border;
+}
 
 
 // Miscellaneous

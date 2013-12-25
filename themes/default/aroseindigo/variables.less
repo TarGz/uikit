@@ -7,17 +7,32 @@
 // Global variables
 // ========================================================================
 
+
+@ri_violet: #514796;
+@ri_pink  : #fc0580;
+@ri_white : #ffffff;
+
 //
-// Text
+// Typography
 //
 
+@import url(http://fonts.googleapis.com/css?family=Gochi+Hand);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 
 
-@global-contrast-color:                         #fff;
+@base-body-font-family   : "Open Sans";
+@base-heading-font-family: "Gochi Hand";
+@global-contrast-color   : #fff;
+@global-font-size        : 12px;
+@global-line-height      : 20px;
 
-@global-font-size:                              12px;
-@global-line-height:                            20px;
 
+
+@base-hr-border:#9e9faf;
+
+h1, h2, h3, h4, h5, h6{
+  color:#9c9eca;
+}
 
 
 
@@ -64,46 +79,36 @@
  * Typography
  */
 
-@global-color: #8d8b9b;
-@global-muted-color: #cacbd5;
-@global-link-color: #514796;
+@global-color           : #8d8b9b;
+@global-muted-color     : #cacbd5;
+@global-link-color      : #514796;
 @global-link-hover-color: #514796;
 
 /*
  * Buttons, Navs & Badges
  */
 
-@theme_global-default-background: #f8f9ff;
-@theme_global-default-hover-background: #514796;
+@theme_global-default-background       : #f8f9ff;
+@theme_global-default-hover-background : #514796;
 @theme_global-default-active-background: #514796;
-@global-primary-background: #514796;
-@global-success-background: #ff9600;
-@global-warning-background: #e91d83;
-@global-danger-background: #a3a3cf;
-
-/*
- * Navbar
- */
-
-@navbar-background:								@theme_global-default-background;
-
-@navbar-nav-hover-background:					@theme_global-default-hover-background;
-@navbar-nav-active-background:					@theme_global-default-hover-background;
-@navbar-nav-onclick-background:					@theme_global-default-active-background;
+@global-primary-background             : #514796;
+@global-success-background             : #ff9600;
+@global-warning-background             : #e91d83;
+@global-danger-background              : #a3a3cf;
 
 
 /*
  * Alert
  */
 
-@alert-background: #f8f9ff;
-@alert-color: #ffffff;
+@alert-background        : #f8f9ff;
+@alert-color             : #ffffff;
 @alert-success-background: #ff9600;
-@alert-success-color: #ffffff;
+@alert-success-color     : #ffffff;
 @alert-warning-background: #ff0783;
-@alert-warning-color: #ffffff;
-@alert-danger-color: #ffffff;
-@alert-danger-background: #a3a3cf;
+@alert-warning-color     : #ffffff;
+@alert-danger-color      : #ffffff;
+@alert-danger-background : #a3a3cf;
 
 /*
  * Article
@@ -128,15 +133,7 @@
 @base-code-color: #514796;
 
 /*
- * Button
- */
 
-@button-primary-hover-background: #e91d83;
-@button-primary-active-background: #514796;
-@button-success-hover-background: #ee7b00;
-@button-danger-hover-background: #8888b9;
-@button-success-active-background: #ff9600;
-@button-danger-active-background: #a3a3cf;
 
 /*
  * Form
