@@ -1738,13 +1738,13 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   text-decoration: none;
   /* 1 */
   height: 40px;
-  padding: 0 15px;
+  padding: 0 8px;
   line-height: 40px;
   /* 2 */
   color: #514796;
   font-size: 15px;
   font-family: Open Sans;
-  font-weight: 700;
+  font-weight: 400;
   margin-top: -1px;
   /* 1 */
   margin-left: -1px;
@@ -1806,7 +1806,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   box-sizing: border-box;
   display: block;
   height: 40px;
-  padding: 0 15px;
+  padding: 0 8px;
   float: left;
 }
 /*
@@ -2176,7 +2176,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 .uk-tab > li > a {
   display: block;
-  padding: 4px 6px;
+  padding: 4px 2px;
   border: 1px solid transparent;
   border-bottom-width: 0;
   text-decoration: none;
@@ -2397,7 +2397,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     margin-bottom: 0;
     margin-right: 1px;
     padding-bottom: 4px;
-    padding-right: 5px;
+    padding-right: 1px;
   }
   .uk-tab-left > li.uk-active > a {
     border-right-color: transparent;
@@ -2420,7 +2420,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     margin-bottom: 0;
     margin-left: 1px;
     padding-bottom: 4px;
-    padding-left: 5px;
+    padding-left: 1px;
   }
   .uk-tab-right > li.uk-active > a {
     border-left-color: transparent;
@@ -5416,7 +5416,7 @@ input.uk-search-field {
  */
 .uk-navbar-flip .uk-dropdown-search {
   margin-top: 5px;
-  margin-right: -15px;
+  margin-right: -8px;
 }
 /* ========================================================================
    Component: Modal
