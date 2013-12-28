@@ -21,9 +21,12 @@
 @button-small-font-size:                        round(@global-font-size * 0.85); // 12px
 @button-large-font-size:                        round(@global-font-size * 1.14); // 16px
 
-@button-color:                                  @global-color;
-@button-hover-color:                            @global-color;
-@button-active-color:                           @global-color;
+@button-background:                             #f8f9fc;
+@button-hover-background:                       #463e7c;
+@button-active-background:                      #514796;
+@button-color:                                  #7e75af;
+@button-hover-color:                            #fff;
+@button-active-color:                           #fff;
 
 @button-primary-background:                     @global-primary-background;
 @button-primary-color:                          @global-contrast-color;
@@ -53,14 +56,34 @@
 @button-primary-hover-background: #463e7c;
 @button-primary-active-background: #514796;
 @button-success-hover-background: #ee7b00;
-@button-danger-hover-background: #8888b9;
 @button-success-active-background: #ff9600;
-@button-danger-active-background: #a3a3cf;
+
+
+//
+// Buttons, Navs & Badges
+//
+
+@global-danger-background: #f8f9fd;
+
+//
+// Button
+//
+
+
+@button-danger-color: #5a4e98;
+
+@button-danger-hover-background: #534891;
+
+@button-danger-active-background: #534891;
+@button-danger-active-color: #ffffff;
+
 
 // Component
 // ========================================================================
 
-.hook-button() {}
+.hook-button() {
+	border: 1px solid #f0f0f8;
+}
 
 .hook-button-hover() {}
 
