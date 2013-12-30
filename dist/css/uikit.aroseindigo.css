@@ -341,7 +341,7 @@ body {
 }
 body hr {
   display: block;
-  border-top: 2px dashed #efefef;
+  border-top: 1px dashed #efefef;
 }
 /* Only phones */
 @media (max-width: 767px) {
@@ -1683,7 +1683,7 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
   color: #777777;
   color: #fc0580;
   font-family: "Gochi Hand";
-  font-size: 30px;
+  font-size: 22px;
 }
 /*
  * Sub-object: `uk-nav-divider`
@@ -2186,7 +2186,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 .uk-tab > li > a {
   display: block;
-  padding: 4px 2px;
+  padding: 4px 5px;
   border: 1px solid transparent;
   border-bottom-width: 0;
   text-decoration: none;
@@ -2407,7 +2407,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     margin-bottom: 0;
     margin-right: 1px;
     padding-bottom: 4px;
-    padding-right: 1px;
+    padding-right: 4px;
   }
   .uk-tab-left > li.uk-active > a {
     border-right-color: transparent;
@@ -2430,7 +2430,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     margin-bottom: 0;
     margin-left: 1px;
     padding-bottom: 4px;
-    padding-left: 1px;
+    padding-left: 4px;
   }
   .uk-tab-right > li.uk-active > a {
     border-left-color: transparent;
