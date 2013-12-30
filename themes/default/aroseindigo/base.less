@@ -34,7 +34,7 @@
 @base-h6-font-size:                             round(@global-font-size * 0.85); // 12px
 @base-h6-line-height:                           round(@base-h6-font-size * 1.5); // 18px
 
-@base-hr-border:                                @global-border;
+@base-hr-border:                                #efefef;
 
 @base-blockquote-border:                        @global-border;
 @base-blockquote-small-color:                   @global-muted-color;
@@ -51,7 +51,13 @@
 // Body
 // ========================================================================
 
-.hook-base-body() {}
+.hook-base-body() {
+	hr {
+	    display: block;
+	    border-top: 2px dashed @base-hr-border;
+	}
+
+}
 
 
 // Code and preformatted text

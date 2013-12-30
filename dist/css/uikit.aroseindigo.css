@@ -339,6 +339,10 @@ body {
   line-height: 20px;
   color: #8d8b9b;
 }
+body hr {
+  display: block;
+  border-top: 2px dashed #efefef;
+}
 /* Only phones */
 @media (max-width: 767px) {
   /*
@@ -563,7 +567,7 @@ hr {
   display: block;
   padding: 0;
   border: 0;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #efefef;
 }
 /* Address
  ========================================================================== */
@@ -1751,8 +1755,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   /* 2 */
   height: 41px;
   /* 3 */
-  border-bottom: 2px dashed #efefef;
-  border-bottom-width: 2px;
+  border-bottom: 0px dashed #efefef;
+  border-bottom-width: 0px;
   text-shadow: 0 0px 0 #efefef;
 }
 /* Appear not as link */
