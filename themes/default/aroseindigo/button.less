@@ -39,9 +39,9 @@
 @button-success-active-color:                   @global-contrast-color;
 
 @button-danger-background:                      @global-danger-background;
-@button-danger-color:                           @global-contrast-color;
-@button-danger-hover-color:                     @global-contrast-color;
-@button-danger-active-color:                    @global-contrast-color;
+@button-danger-color:                           #fff;
+@button-danger-hover-color:                     #fff;
+@button-danger-active-color:                    #fff;
 
 @button-disabled-color:                         @global-muted-color;
 
@@ -57,25 +57,15 @@
 @button-primary-active-background: #514796;
 @button-success-hover-background: #ee7b00;
 @button-success-active-background: #ff9600;
+@button-danger-color: #ffffff;
+@button-danger-hover-background: #e4167c;
+@button-danger-active-background: #fc0580;
 
 
 //
 // Buttons, Navs & Badges
 //
 
-@global-danger-background: #f8f9fd;
-
-//
-// Button
-//
-
-
-@button-danger-color: #5a4e98;
-
-@button-danger-hover-background: #534891;
-
-@button-danger-active-background: #534891;
-@button-danger-active-color: #ffffff;
 
 
 // Component
@@ -97,7 +87,9 @@
 // Modifier: `uk-button-primary`
 //
 
-.hook-button-primary() {}
+.hook-button-primary() {
+	border: 0px;
+}
 
 .hook-button-primary-hover() {}
 .hook-button-primary-active() {}
@@ -106,7 +98,9 @@
 // Modifier: `uk-button-success`
 //
 
-.hook-button-success() {}
+.hook-button-success() {
+	border: 0px;
+}
 
 .hook-button-success-hover() {}
 .hook-button-success-active() {}
@@ -115,7 +109,9 @@
 // Modifier: `uk-button-danger`
 //
 
-.hook-button-danger() {}
+.hook-button-danger() {
+	border: 0px;
+}
 
 .hook-button-danger-hover() {}
 .hook-button-danger-active() {}

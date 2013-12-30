@@ -1647,8 +1647,9 @@ ul.uk-nav-sub {
  * Items
  */
 .uk-nav-offcanvas > li > a {
-  color: #cccccc;
+  color: #ffffff;
   padding: 10px 15px;
+  border-bottom: 1px dashed #969abd;
 }
 /*
  * Hover
@@ -1660,37 +1661,42 @@ ul.uk-nav-sub {
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:hover,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
   /* 1 */
-  background: #404040;
+  background: #7d7eb0;
   color: #ffffff;
   outline: none;
   /* 2 */
+  color: #d0cef3;
 }
 /*
  * Active
  * `html .uk-nav` needed for higher specificity to override hover
  */
 html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
-  background: #1a1a1a;
+  background: #55568b;
   color: #ffffff;
+  color: #fc0580;
 }
 /*
  * Sub-object: `uk-nav-header`
  */
 .uk-nav-offcanvas .uk-nav-header {
   color: #777777;
+  color: #fc0580;
+  font-family: "Gochi Hand";
+  font-size: 30px;
 }
 /*
  * Sub-object: `uk-nav-divider`
  */
 .uk-nav-offcanvas .uk-nav-divider {
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid #55568b;
 }
 /*
  * Nested items
  * No hover on touch devices because it behaves buggy in fixed offcanvas
  */
 .uk-nav-offcanvas ul a {
-  color: #cccccc;
+  color: #ffffff;
 }
 html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   color: #ffffff;
@@ -2931,6 +2937,7 @@ a.uk-button {
 .uk-button-primary {
   background-color: #514796;
   color: #ffffff;
+  border: 0px;
 }
 /* Hover */
 .uk-button-primary:hover,
@@ -2950,6 +2957,7 @@ a.uk-button {
 .uk-button-success {
   background-color: #ff9600;
   color: #ffffff;
+  border: 0px;
 }
 /* Hover */
 .uk-button-success:hover,
@@ -2967,19 +2975,20 @@ a.uk-button {
  * Modifier: `uk-button-danger`
  */
 .uk-button-danger {
-  background-color: #f8f9fd;
-  color: #5a4e98;
+  background-color: #fc0580;
+  color: #ffffff;
+  border: 0px;
 }
 /* Hover */
 .uk-button-danger:hover,
 .uk-button-danger:focus {
-  background-color: #534891;
+  background-color: #e4167c;
   color: #ffffff;
 }
 /* Active */
 .uk-button-danger:active,
 .uk-button-danger.uk-active {
-  background-color: #534891;
+  background-color: #fc0580;
   color: #ffffff;
 }
 /* Disabled state
@@ -4429,13 +4438,13 @@ a.uk-close:hover {
  * Modifier: `uk-badge-warning`
  */
 .uk-badge-warning {
-  background-color: #e91d83;
+  background-color: #fc0580;
 }
 /*
  * Modifier: `uk-badge-danger`
  */
 .uk-badge-danger {
-  background-color: #f8f9fd;
+  background-color: #fc0580;
 }
 /* ========================================================================
    Component: Alert
@@ -4722,10 +4731,10 @@ a.uk-thumbnail:focus {
   background-color: #ff9600;
 }
 .uk-progress-warning .uk-progress-bar {
-  background-color: #e91d83;
+  background-color: #fc0580;
 }
 .uk-progress-danger .uk-progress-bar {
-  background-color: #f8f9fd;
+  background-color: #fc0580;
 }
 /* Modifier: `uk-progress-striped`
  ========================================================================== */
@@ -5261,7 +5270,7 @@ input.uk-search-field {
   width: 200px;
   margin-top: 5px;
   padding: 15px;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #8d8b9b;
   /* 5 */
   letter-spacing: normal;
@@ -5397,7 +5406,7 @@ input.uk-search-field {
  ========================================================================== */
 .uk-dropdown-navbar {
   margin-top: 0;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #8d8b9b;
 }
 .uk-open > .uk-dropdown-navbar {
@@ -5409,7 +5418,7 @@ input.uk-search-field {
 .uk-dropdown-search {
   width: 300px;
   margin-top: 0;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #8d8b9b;
 }
 .uk-open > .uk-dropdown-search {
@@ -5622,7 +5631,7 @@ input.uk-search-field {
   /* 2 */
   width: 270px;
   max-width: 100%;
-  background: #333333;
+  background: #6d6ea6;
   /* 3 */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -5649,10 +5658,10 @@ input.uk-search-field {
   color: #777777;
 }
 .uk-offcanvas .uk-panel-title {
-  color: #cccccc;
+  color: #ffffff;
 }
 .uk-offcanvas .uk-panel a:not([class]) {
-  color: #cccccc;
+  color: #ffffff;
 }
 .uk-offcanvas .uk-panel a:not([class]):hover {
   color: #ffffff;
@@ -5669,8 +5678,8 @@ input.uk-search-field {
 .uk-offcanvas .uk-search-field {
   width: 100%;
   border-color: rgba(0, 0, 0, 0);
-  background: #1a1a1a;
-  color: #cccccc;
+  background: #55568b;
+  color: #ffffff;
 }
 .uk-offcanvas .uk-search-field:-ms-input-placeholder {
   color: #777777;
