@@ -1,6 +1,6 @@
 /*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
 
-@import url(http://fonts.googleapis.com/css?family=Gochi+Hand);
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 /* ========================================================================
    Component: Normalize
@@ -486,7 +486,7 @@ h4,
 h5,
 h6 {
   margin: 0 0 15px 0;
-  font-family: "Gochi Hand";
+  font-family: "Satisfy";
   font-weight: normal;
   color: #8d8b9b;
   text-transform: none;
@@ -1682,7 +1682,7 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
 .uk-nav-offcanvas .uk-nav-header {
   color: #777777;
   color: #fc0580;
-  font-family: "Gochi Hand";
+  font-family: "Satisfy";
   font-size: 22px;
 }
 /*
