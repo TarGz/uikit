@@ -1682,6 +1682,7 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
  */
 .uk-nav-offcanvas .uk-nav-header {
   color: #777777;
+  text-transform: none;
   color: #fc0580;
   font-family: "Satisfy";
   font-size: 22px;
@@ -5857,10 +5858,10 @@ input.uk-search-field {
   color: #ff9600 !important;
 }
 .uk-text-warning {
-  color: #e91d83 !important;
+  color: #ffffff !important;
 }
 .uk-text-danger {
-  color: #ffffff !important;
+  color: #e91d83 !important;
 }
 /* Alignment modifiers
  ========================================================================== */
@@ -6313,9 +6314,6 @@ h6 {
  * Table
  */
 /*
- * Text
- */
-/*
  * Tooltip
  */
 .uk-navbar-nav > li > a[href='#'] {
@@ -6331,4 +6329,7 @@ h6 {
 }
 /*
  * Alert
+ */
+/*
+ * Text
  */
