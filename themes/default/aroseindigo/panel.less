@@ -10,11 +10,11 @@
 @panel-title-margin-bottom:                     @global-margin;
 @panel-title-font-size:                         round(@global-font-size * 1.28); // 18px
 @panel-title-line-height:                       round(@panel-title-font-size * 1.33); // 24px
-@panel-title-color:                             @global-color;
+@panel-title-color:                             #000;
 
 @panel-box-padding:                             @global-margin;
 @panel-box-color:                               @global-color;
-@panel-box-title-color:                         @global-color;
+@panel-box-title-color:                         #000;
 @panel-box-badge-right:                         @panel-box-badge-top;
 
 @panel-header-title-border:                     @global-border;
@@ -27,8 +27,16 @@
 
 // ==
 
-@panel-box-secondary-title-color:               #444444;
-@panel-box-background: #fafafa;
+
+
+
+@panel-box-primary-color: #fafafa;
+@panel-box-primary-background: rgba(81, 71, 150, 0.48);
+@panel-box-primary-title-color: #ffffff;
+@panel-box-background: #ffffff;
+@panel-box-secondary-background: rgba(252, 5, 128, 0.47);
+@panel-box-secondary-color: #ffffff;
+@panel-box-secondary-title-color: #ffffff;
 
 
 // Sub-object: `uk-panel-title`
@@ -55,7 +63,7 @@
 //
 
 .hook-panel-box-primary() {
-
+	border          : 0px;
 }
 
 //
@@ -63,16 +71,17 @@
 //
 
 .hook-panel-box-secondary() {
-	color           :#6a5e6d;
-	background-color: #FFF;
 
+	border          : 0px;
 }
 
 
 // Modifier: `uk-panel-header`
 // ========================================================================
 
-.hook-panel-header() {}
+.hook-panel-header() {
+	color:#000;
+}
 
 
 // Miscellaneous

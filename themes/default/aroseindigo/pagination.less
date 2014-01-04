@@ -18,10 +18,19 @@
 @pagination-disabled-color:                     @global-muted-color;
 
 
+
+@pagination-background: #f8f9fc;
+@pagination-hover-background: #514796;
+@pagination-disabled-background: #f5f5f5;
+@pagination-onclick-background: #6559bd;
+
+
 // Component
 // ========================================================================
 
-.hook-pagination-item() {}
+.hook-pagination-item() {
+	border:1px solid #f0f0f8;
+}
 
 
 // Items
@@ -29,7 +38,9 @@
 
 .hook-pagination-link() {}
 
-.hook-pagination-link-hover() {}
+.hook-pagination-link-hover() {
+	color:#fff;
+}
 
 .hook-pagination-link-active() {}
 

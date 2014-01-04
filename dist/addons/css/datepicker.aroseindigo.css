@@ -33,11 +33,11 @@
  * Previous and next navigation
  */
 .uk-datepicker-nav a {
-  color: #8d8b9b;
+  color: #444444;
   text-decoration: none;
 }
 .uk-datepicker-nav a:hover {
-  color: #8d8b9b;
+  color: #444444;
 }
 .uk-datepicker-previous {
   float: left;
@@ -79,14 +79,14 @@
   width: 26px;
   line-height: 24px;
   text-align: center;
-  color: #8d8b9b;
+  color: #444444;
   text-decoration: none;
 }
 /*
  * Sub-object: `uk-datepicker-table-muted`
  */
 a.uk-datepicker-table-muted {
-  color: #cacbd5;
+  color: #999999;
 }
 /*
  * Hover
@@ -97,14 +97,14 @@ a.uk-datepicker-table-muted {
 .uk-datepicker-table a:focus {
   /* 1 */
   background-color: #dddddd;
-  color: #8d8b9b;
+  color: #444444;
   outline: none;
   /* 2 */
 }
 /* OnClick */
 .uk-datepicker-table a:active {
   background-color: #cccccc;
-  color: #8d8b9b;
+  color: #444444;
 }
 /*
  * Active
@@ -123,13 +123,7 @@ h6 {
 }
 /* theme: Almost Flat */
 /*
- * Typography
- */
-/*
  * Buttons, Navs & Badges
- */
-/*
- * Alert
  */
 /*
  * Article
@@ -151,9 +145,6 @@ h6 {
  */
 /*
  * Overlay
- */
-/*
- * Panel
  */
 /*
  * Tab

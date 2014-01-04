@@ -46,7 +46,7 @@
   padding: 0 15px;
   line-height: 40px;
   /* 2 */
-  color: #8d8b9b;
+  color: #444444;
   font-size: 11px;
   cursor: pointer;
 }
@@ -59,19 +59,19 @@
 .uk-markdownarea-navbar-nav > li > a:focus {
   /* 1 */
   background-color: #f5f5f5;
-  color: #8d8b9b;
+  color: #444444;
   outline: none;
   /* 2 */
 }
 /* OnClick */
 .uk-markdownarea-navbar-nav > li > a:active {
   background-color: #dddddd;
-  color: #8d8b9b;
+  color: #444444;
 }
 /* Active */
 .uk-markdownarea-navbar-nav > li.uk-active > a {
   background-color: #f5f5f5;
-  color: #8d8b9b;
+  color: #444444;
 }
 /* Sub-object: `uk-markdownarea-navbar-flip`
  ========================================================================== */
@@ -169,13 +169,7 @@ h6 {
 }
 /* theme: Almost Flat */
 /*
- * Typography
- */
-/*
  * Buttons, Navs & Badges
- */
-/*
- * Alert
  */
 /*
  * Article
@@ -197,9 +191,6 @@ h6 {
  */
 /*
  * Overlay
- */
-/*
- * Panel
  */
 /*
  * Tab
