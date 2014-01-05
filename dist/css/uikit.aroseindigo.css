@@ -1683,9 +1683,9 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
 .uk-nav-offcanvas .uk-nav-header {
   color: #777777;
   text-transform: none;
-  color: #fc0580;
+  color: #514796;
   font-family: "Satisfy";
-  font-size: 22px;
+  font-size: 24px;
 }
 /*
  * Sub-object: `uk-nav-divider`
@@ -3016,6 +3016,7 @@ a.uk-button {
   display: inline;
   border: none;
   background: none;
+  text-decoration: underline;
 }
 /* Color */
 .uk-button-link {
@@ -5852,7 +5853,7 @@ input.uk-search-field {
   color: #999999 !important;
 }
 .uk-text-info {
-  color: #514796 !important;
+  color: #9c9eca !important;
 }
 .uk-text-success {
   color: #ff9600 !important;
