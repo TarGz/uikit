@@ -80,21 +80,21 @@
 /* Modifier: `uk-alert-success`
  ========================================================================== */
 .uk-notify-message-success {
-  background: #f2fae3;
-  color: #659f13;
-  border-color: rgba(101, 159, 19, 0.3);
+  background: #ff9600;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 /* Modifier: `uk-notify-message-warning`
  ========================================================================== */
 .uk-notify-message-warning {
-  background: #fffceb;
-  color: #e28327;
-  border-color: rgba(226, 131, 39, 0.3);
+  background: #f6f6f6;
+  color: #fc0580;
+  border-color: rgba(252, 5, 128, 0.3);
 }
 /* Modifier: `uk-notify-message-danger`
  ========================================================================== */
 .uk-notify-message-danger {
-  background: #fff1f0;
-  color: #d85030;
-  border-color: rgba(216, 80, 48, 0.3);
+  background: #ff0783;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }

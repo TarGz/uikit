@@ -77,18 +77,18 @@
 /* Modifier: `uk-alert-success`
  ========================================================================== */
 .uk-notify-message-success {
-  background: #f2fae3;
-  color: #659f13;
+  background: #ff9600;
+  color: #ffffff;
 }
 /* Modifier: `uk-notify-message-warning`
  ========================================================================== */
 .uk-notify-message-warning {
-  background: #fffceb;
-  color: #e28327;
+  background: #f6f6f6;
+  color: #fc0580;
 }
 /* Modifier: `uk-notify-message-danger`
  ========================================================================== */
 .uk-notify-message-danger {
-  background: #fff1f0;
-  color: #d85030;
+  background: #ff0783;
+  color: #ffffff;
 }
