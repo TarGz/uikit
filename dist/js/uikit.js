@@ -1,13 +1,30 @@
 /*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
-(function($, doc, global) {
+(function(core) {
+
+     if (typeof define == "function" && define.amd) { // AMD
+         define("uikit", function(){
+             return core(window, window.jQuery, window.document);
+         });
+     }
+
+     if (!window.jQuery) {
+         throw new Error( "UIkit requires jQuery" );
+     }
+
+     if (window && window.jQuery) {
+         core(window, window.jQuery, window.document);
+     }
+
+
+})(function(global, $, doc) {
 
     "use strict";
 
     var UI = $.UIkit || {}, $html = $("html"), $win = $(window);
 
     if (UI.fn) {
-        return;
+        return UI;
     }
 
     UI.version = '2.3.1';
@@ -164,14 +181,16 @@
 
         // remove css hover rules for touch devices
         if (UI.support.touch) {
-            //UI.Utils.removeCssRules(/\.uk-(?!navbar).*:hover/);
+            UI.Utils.removeCssRules(/\.uk-(?!navbar).*:hover/);
         }
     });
 
     // add touch identifier class
     $html.addClass(UI.support.touch ? "uk-touch" : "uk-notouch");
 
-})(jQuery, document, window);
+    return UI;
+
+});
 
 
 (function($, UI) {
@@ -895,7 +914,54 @@
 
             if (stacked) return;
 
-            this.elements.each(function() {
+            if(this.options.row) {
+
+                this.element.width(); // force redraw
+
+                setTimeout(function(){
+
+                    var lastoffset = false, group = [];
+
+                    $this.elements.each(function(i) {
+                        var ele = $(this), offset = ele.offset().top;
+
+                        if(offset != lastoffset && group.length) {
+
+                            $this.matchHeights($(group));
+                            group  = [];
+                            offset = ele.offset().top;
+                        }
+
+                        group.push(ele);
+                        lastoffset = offset;
+                    });
+
+                    if(group.length) {
+                        $this.matchHeights($(group));
+                    }
+
+                }, 0);
+
+            } else {
+
+                this.matchHeights(this.elements);
+            }
+
+            return this;
+        },
+
+        revert: function() {
+            this.elements.css('min-height', '');
+            return this;
+        },
+
+        matchHeights: function(elements){
+
+            if(elements.length < 2) return;
+
+            var max = 0;
+
+            elements.each(function() {
                 max = Math.max(max, $(this).outerHeight());
             }).each(function(i) {
 
@@ -904,19 +970,13 @@
 
                 element.css('min-height', height + 'px');
             });
-
-            return this;
-        },
-
-        revert: function() {
-            this.elements.css('min-height', '');
-            return this;
         }
 
     });
 
     GridMatchHeight.defaults = {
-        "target": false
+        "target" : false,
+        "row"    : false
     };
 
     var GridMargin = function(element, options) {

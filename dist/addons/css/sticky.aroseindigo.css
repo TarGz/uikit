@@ -3,29 +3,10 @@
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 /* ========================================================================
-   Addon: Form password
+   Addon: Sticky
  ========================================================================== */
-.uk-form-password {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-}
-.uk-form-password-toggle {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  margin-top: -5px;
-  font-size: 11px;
-  line-height: 11px;
-  color: #999999;
-}
-.uk-form-password-toggle:hover {
-  color: #999999;
-  text-decoration: none;
-}
-.uk-form-password > input {
-  padding-right: 50px !important;
+.uk-sticky {
+  z-index: 980;
 }
 h1,
 h2,
