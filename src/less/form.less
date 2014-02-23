@@ -31,21 +31,35 @@
 // ========================================================================
 
 @form-height:                                   30px;
-@form-small-height:                             25px;
-@form-large-height:                             40px;
-@form-small-font-size:                          12px;
-@form-large-font-size:                          16px;
-
+@form-padding:                                  4px 6px;
 @form-border:                                   #ddd;
+@form-border-width:                             1px;
 @form-background:                               #fff;
 @form-color:                                    #444;
-@form-placeholder-color:                        #999;
+
 @form-focus-border:                             #99baca;
 @form-focus-background:                         #f5fbfe;
 @form-focus-color:                              #444;
+
 @form-disabled-border:                          #ddd;
 @form-disabled-background:                      #f5f5f5;
 @form-disabled-color:                           #999;
+
+@form-placeholder-color:                        #999;
+
+@form-gutter:                                   15px;
+
+@form-legend-border:                            #ddd;
+@form-legend-border-width:                      1px;
+@form-legend-font-size:                         18px;
+@form-legend-line-height:                       30px;
+
+@form-small-height:                             25px;
+@form-large-height:                             40px;
+@form-small-padding:                            3px 3px;
+@form-large-padding:                            8px 6px;
+@form-small-font-size:                          12px;
+@form-large-font-size:                          16px;
 
 @form-danger-border:                            #dc8d99;
 @form-danger-background:                        #fff7f8;
@@ -55,20 +69,28 @@
 @form-success-background:                       #fafff2;
 @form-success-color:                            #539022;
 
-@form-blank-outline:                            #ddd;
+@form-blank-border:                             #ddd;
+@form-blank-border-style:                       dashed;
 
 @form-mini-width:                               40px;
 @form-small-width:                              130px;
 @form-medium-width:                             200px;
 @form-large-width:                              500px;
 
-@form-legend-border:                            #ddd;
-@form-legend-font-size:                         18px;
-@form-legend-line-height:                       30px;
+@form-help-inline-margin-left:                  10px;
+@form-help-block-margin-top:                    5px;
 
-@form-gutter:                                   15px;
+@form-controls-condensed-margin-vertical:       5px;
+
+@form-stacked-margin-bottom:                    5px;
+
+@form-horizontal-label-width:                   200px;
+@form-horizontal-label-margin-top:              5px;
+@form-horizontal-controls-margin-left:          215px;
+@form-horizontal-controls-text-padding-top:     5px;
 
 @form-icon-width:                               30px;
+@form-icon-font-size:                           14px;
 @form-icon-color:                               #999;
 
 
@@ -84,13 +106,16 @@
 
 /*
  * Controls
- * Exept for `range`, `radio`, `checkbox`, `file`, `submit`, `reset`, `button` and `image`
+ * Except for `range`, `radio`, `checkbox`, `file`, `submit`, `reset`, `button` and `image`
  * 1. Must be `height` because `min-height` is not working in OSX
  * 2. Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports
+ * 3. Vertical `padding` needed for `select` elements in Firefox
+ * 4. Style
  */
 
 .uk-form select,
 .uk-form textarea,
+.uk-form input:not([type]),
 .uk-form input[type="text"],
 .uk-form input[type="password"],
 .uk-form input[type="datetime"],
@@ -105,10 +130,14 @@
 .uk-form input[type="search"],
 .uk-form input[type="tel"],
 .uk-form input[type="color"] {
-    height: @form-height; /* 1 */
-    max-width: 100%; /* 2 */
-    padding: 4px 6px;
-    border: 1px solid @form-border;
+    /* 1 */
+    height: @form-height;
+    /* 2 */
+    max-width: 100%;
+    /* 3 */
+    padding: @form-padding;
+    /* 4 */
+    border: @form-border-width solid @form-border;
     background: @form-background;
     color: @form-color;
     -webkit-transition: all linear 0.2s;
@@ -135,51 +164,80 @@
 
 /*
  * Placeholder
- * 1. Higher specificity needed to override color in IE
+ * Higher specificity (!imporntant) needed to override color in IE
  */
 
-.uk-form :-ms-input-placeholder { color: @form-placeholder-color !important; } /* 1. */
+.uk-form :-ms-input-placeholder { color: @form-placeholder-color !important; }
 .uk-form ::-moz-placeholder { color: @form-placeholder-color; }
 .uk-form ::-webkit-input-placeholder { color: @form-placeholder-color; }
 
-.uk-form :disabled:-ms-input-placeholder { color: @form-disabled-color !important; } /* 1. */
+.uk-form :disabled:-ms-input-placeholder { color: @form-disabled-color !important; }
 .uk-form :disabled::-moz-placeholder { color: @form-disabled-color; }
 .uk-form :disabled::-webkit-input-placeholder { color: @form-disabled-color; }
+
+/*
+ * Reset style on iOS.
+ */
+
+.uk-form textarea,
+.uk-form input:not([type]),
+.uk-form input[type="text"],
+.uk-form input[type="password"],
+.uk-form input[type="email"],
+.uk-form input[type="url"],
+.uk-form input[type="search"],
+.uk-form input[type="tel"] { -webkit-appearance: none; }
+
+/*
+ * Removes box-shadow for invalid controls in Firefox.
+ */
+
+.uk-form :invalid { box-shadow: none; }
 
 /*
  * Legend style
  * 1. `margin-bottom` is not working in Safari and Opera.
  *    Using `padding` and :after instead to create the border
+ * 2. Style
  */
 
 .uk-form legend {
     width: 100%;
-    padding-bottom: @form-gutter; /* 1 */
+    /* 1 */
+    padding-bottom: @form-gutter;
+    /* 2 */
     font-size: @form-legend-font-size;
     line-height: @form-legend-line-height;
+    .hook-form-legend;
 }
 
 /* 1 */
 .uk-form legend:after {
     content: "";
     display: block;
-    border-bottom: 1px solid @form-legend-border;
+    border-bottom: @form-legend-border-width solid @form-legend-border;
 }
 
 
 /* Size modifiers
- * Using !important to keep the selector simple
+ * Higher specificity needed to override defaults
  ========================================================================== */
 
-.uk-form-small {
-    height: @form-small-height !important;
-    padding: 3px 3px !important;
+select.uk-form-small,
+textarea.uk-form-small,
+input[type].uk-form-small,
+input:not([type]).uk-form-small {
+    height: @form-small-height;
+    padding: @form-small-padding;
     font-size: @form-small-font-size;
 }
 
-.uk-form-large {
-    height: @form-large-height !important;
-    padding: 8px 6px !important;
+select.uk-form-large,
+textarea.uk-form-large,
+input[type].uk-form-large,
+input:not([type]).uk-form-large  {
+    height: @form-large-height;
+    padding: @form-large-padding;
     font-size: @form-large-font-size;
 }
 
@@ -190,7 +248,7 @@
 
 .uk-form textarea,
 .uk-form select[multiple],
-.uk-form select[size] { height: auto !important; }
+.uk-form select[size] { height: auto; }
 
 
 /* Validation states
@@ -229,13 +287,16 @@
  */
 
 .uk-form-blank {
-    border: none !important;
+    border-color: transparent !important;
+    border-style: @form-blank-border-style !important;
     background: none !important;
-    box-shadow: none !important;
-    outline: 1px dashed transparent !important;
+    .hook-form-blank;
 }
 
-.uk-form-blank:focus { outline-color:@form-blank-outline !important; }
+.uk-form-blank:focus {
+    border-color: @form-blank-border !important;
+    .hook-form-blank-focus;
+}
 
 
 /* Size sub-modifiers
@@ -243,11 +304,11 @@
 
 /*
  * Fixed widths
- * 1. Different widths for mini sized `input` and `select` elements
+ * Different widths for mini sized `input` and `select` elements
  */
 
-input.uk-form-width-mini { width: @form-mini-width; } /* 1 */
-select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
+input.uk-form-width-mini { width: @form-mini-width; }
+select.uk-form-width-mini { width: (@form-mini-width + 25px); }
 .uk-form-width-small { width: @form-small-width; }
 .uk-form-width-medium { width: @form-medium-width; }
 .uk-form-width-large { width: @form-large-width; }
@@ -283,10 +344,10 @@ select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
 
 .uk-form-help-inline {
     display: inline-block;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 @form-help-inline-margin-left;
 }
 
-.uk-form-help-block { margin: 5px 0 0 0; }
+.uk-form-help-block { margin: @form-help-block-margin-top 0 0 0; }
 
 
 /* Controls content
@@ -304,7 +365,7 @@ select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
  * Group controls and text into blocks with a small spacing between blocks
  */
 
-.uk-form-controls-condensed { margin: 5px 0; }
+.uk-form-controls-condensed { margin: @form-controls-condensed-margin-vertical 0; }
 
 
 /* Modifier: `uk-form-stacked`
@@ -313,42 +374,40 @@ select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
 
 .uk-form-stacked .uk-form-label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: @form-stacked-margin-bottom;
     font-weight: bold;
 }
 
 
 /* Modifier: `uk-form-horizontal`
- * Requrires sub-objects: `uk-form-label`, `uk-form-controls`
+ * Requires sub-objects: `uk-form-label`, `uk-form-controls`
  ========================================================================== */
 
-/* Only phones and tablets portrait */
+/* Tablet portrait and smaller */
 @media (max-width: @breakpoint-medium-max) {
 
+    /* Behave like `uk-form-stacked` */
     .uk-form-horizontal .uk-form-label {
-
-        /* Behave like `uk-form-stacked` */
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: @form-stacked-margin-bottom;
         font-weight: bold;
-
     }
 
 }
 
-/* Only tablets and desktops */
+/* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
     .uk-form-horizontal .uk-form-label {
-        width: 200px;
-        margin-top: 5px;
+        width: @form-horizontal-label-width;
+        margin-top: @form-horizontal-label-margin-top;
         float: left;
     }
 
-    .uk-form-horizontal .uk-form-controls { margin-left: 215px; }
+    .uk-form-horizontal .uk-form-controls { margin-left: @form-horizontal-controls-margin-left; }
 
     /* Better vertical alignment if controls are checkboxes and radio buttons with text */
-    .uk-form-horizontal .uk-form-controls-text { padding-top: 5px; }
+    .uk-form-horizontal .uk-form-controls-text { padding-top: @form-horizontal-controls-text-padding-top; }
 
 }
 
@@ -364,13 +423,22 @@ select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
 
 .uk-form-icon > [class*='uk-icon-'] {
     position: absolute;
+    top: 50%;
     width: @form-icon-width;
-    line-height: @form-icon-width;
+    margin-top: round(@form-icon-font-size / -2);
+    font-size: @form-icon-font-size;
     color: @form-icon-color;
     text-align: center;
 }
 
-.uk-form-icon > input { padding-left: @form-icon-width !important; }
+.uk-form-icon:not(.uk-form-icon-flip) > input { padding-left: @form-icon-width !important; }
+
+/*
+ * Sub-modifier: `uk-form-icon-flip`
+ */
+
+.uk-form-icon-flip > [class*='uk-icon-'] { right: 0; }
+.uk-form-icon-flip > input { padding-right: @form-icon-width !important; }
 
 
 // Hooks
@@ -381,6 +449,9 @@ select.uk-form-width-mini { width: (@form-mini-width + 25px); } /* 1 */
 .hook-form() {}
 .hook-form-focus() {}
 .hook-form-disabled() {}
+.hook-form-legend() {}
 .hook-form-danger() {}
 .hook-form-success() {}
+.hook-form-blank() {}
+.hook-form-blank-focus() {}
 .hook-form-misc() {}

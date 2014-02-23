@@ -223,7 +223,7 @@
 
                             <h4 class="tm-article-subtitle">Example</h4>
 
-                                <p class="uk-clearfix"><img class="uk-align-medium-right" src="http://placekitten.com/400/200" alt="Image aligned to the right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p class="uk-clearfix"><img class="uk-align-medium-right" src="images/placeholder_400x200.svg" width="400" height="200" alt="Image aligned to the right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                             <h4 class="tm-article-subtitle">Markup</h4>
 
@@ -368,7 +368,7 @@
 
                             <h3 class="tm-article-subtitle">Example height</h3>
 
-                            <p style="height: 100px;"><img class="uk-responsive-height" src="http://placekitten.com/400/200"></p>
+                            <p style="height: 100px;"><img class="uk-responsive-height" src="images/placeholder_400x200.svg" width="400" height="200"></p>
 
                             <h3 class="tm-article-subtitle">Markup</h3>
 
@@ -380,7 +380,7 @@
 
                             <h2>Margin</h2>
 
-                            <p>Add one of the following classes to add or remove spacing from block elements.</p>
+                            <p>Add one of the following classes to add spacing to block elements.</p>
 
                             <table class="uk-table uk-table-condensed">
                                 <thead>
@@ -403,6 +403,105 @@
                                         <td>Adds bottom margin.</td>
                                     </tr>
                                     <tr>
+                                        <td><code>.uk-margin-left</code></td>
+                                        <td>Adds left margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-right</code></td>
+                                        <td>Adds right margin.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <hr class="uk-article-divider">
+
+                            <h3>Larger margin</h3>
+
+                            <p>Add one of the following classes to add larger spacing to block elements.</p>
+
+                            <table class="uk-table uk-table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="uk-width-1-4">Class</th>
+                                        <th class="uk-width-3-4">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>.uk-margin-large</code></td>
+                                        <td>Adds large top and bottom margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-large-top</code></td>
+                                        <td>Adds large top margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-large-bottom</code></td>
+                                        <td>Adds large bottom margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-large-left</code></td>
+                                        <td>Adds large left margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-large-right</code></td>
+                                        <td>Adds large right margin.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <hr class="uk-article-divider">
+
+                            <h3>Smaller margin</h3>
+
+                            <p>Add one of the following classes to add smaller spacing to block elements.</p>
+
+                            <table class="uk-table uk-table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="uk-width-1-4">Class</th>
+                                        <th class="uk-width-3-4">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>.uk-margin-small</code></td>
+                                        <td>Adds small top and bottom margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-small-top</code></td>
+                                        <td>Adds small top margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-small-bottom</code></td>
+                                        <td>Adds small bottom margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-small-left</code></td>
+                                        <td>Adds small left margin.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.uk-margin-small-right</code></td>
+                                        <td>Adds small right margin.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <hr class="uk-article-divider">
+
+                            <h3>Remove margin</h3>
+
+                            <p>Add one of the following classes to remove spacing from block elements.</p>
+
+                            <table class="uk-table uk-table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="uk-width-1-4">Class</th>
+                                        <th class="uk-width-3-4">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
                                         <td><code>.uk-margin-remove</code></td>
                                         <td>Removes all margins.</td>
                                     </tr>
@@ -416,6 +515,53 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <hr class="uk-article-divider">
+
+                            <h2>Auto margin</h2>
+
+                            <p>To add spacing to stacking elements, for example inline elements that wrap on smaller vieports, just add the <code>data-uk-margin</code> attribute to their parent container. It will automatically add the <code>.uk-margin-small-top</code> to the lower element.</p>
+
+                            <h3 class="tm-article-subtitle">Example</h3>
+
+                            <p class="uk-width-1-2" data-uk-margin>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                                <button class="uk-button">Button</button>
+                            </p>
+
+                            <h3 class="tm-article-subtitle">Markup</h3>
+
+<pre><code>&lt;p data-uk-margin&gt;
+    &lt;button class="uk-button"&gt;...&lt;/button&gt;
+    &lt;button class="uk-button"&gt;...&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+
+                            <p><span class="uk-badge">NOTE</span> By default, the data attribute adds the <code>.uk-margin-small-top</code> class to stacking elements. To apply a bigger margin, just add the <code>{cls:'.uk-margin-top'}</code> option.</p>
+
+                            <hr class="uk-article-divider">
+
+                            <h2>Border radius</h2>
+
+                            <p>To add rounded corners to an element, like an image, just add the <code>.uk-border-rounded</code>. To a apply a circled shape, add the <code>.uk-border-circle</code> class.</p>
+
+                            <h3 class="tm-article-subtitle">Example</h3>
+
+                            <p>
+                                <img class="uk-border-rounded" src="images/placeholder_200x200.svg" width="200" height="200" alt="Border rounded">
+                                <img class="uk-border-circle" src="images/placeholder_200x200.svg" width="200" height="200" alt="Border circle">
+                            </p>
+
+<pre><code>&lt;img class="uk-border-rounded" src="" alt=""&gt;
+&lt;img class="uk-border-circle" src="" alt=""&gt;
+</code></pre>
 
                             <hr class="uk-article-divider">
 
@@ -691,6 +837,7 @@
                         <ul class="uk-nav-sub">
                             <li><a href="documentation_get-started.html">Get started</a></li>
                             <li><a href="documentation_how-to-customize.html">How to customize</a></li>
+                            <li><a href="documentation_layouts.html">Layout examples</a></li>
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
@@ -763,13 +910,14 @@
                     </li>
                     <li class="uk-parent"><a href="#">Add-ons</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="addons_markdownarea.html">Markdown Area</a></li>
+                            <li><a href="addons_markdownarea.html">Markdown area</a></li>
                             <li><a href="addons_sortable.html">Sortable</a></li>
                             <li><a href="addons_datepicker.html">Datepicker</a></li>
                             <li><a href="addons_timepicker.html">Timepicker</a></li>
                             <li><a href="addons_sticky.html">Sticky</a></li>
                             <li><a href="addons_notify.html">Notify</a></li>
-                            <li><a href="addons_form-password.html">Form Password</a></li>
+                            <li><a href="addons_form-password.html">Form password</a></li>
+                            <li><a href="addons_form-file.html">Form file</a></li>
                         </ul>
                     </li>
                 </ul>

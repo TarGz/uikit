@@ -11,6 +11,8 @@
 // Variables
 // ========================================================================
 
+@breadcrumb-font-size:                          1rem;
+
 @breadcrumb-divider:                            "/";
 @breadcrumb-divider-margin:                     8px;
 @breadcrumb-disabled-color:                     #999;
@@ -30,7 +32,7 @@
     padding: 0;
     list-style: none;
     /* 2 */
-    letter-spacing: -0.31em;
+    font-size: 0.01px;
     .hook-breadcrumb;
 }
 
@@ -42,7 +44,10 @@
  * Reset whitespace hack
  */
 
-.uk-breadcrumb > li { letter-spacing: normal; } 
+.uk-breadcrumb > li {
+    font-size: @breadcrumb-font-size;
+    vertical-align: top;
+}
 
 .uk-breadcrumb > li,
 .uk-breadcrumb > li > a,
@@ -52,7 +57,6 @@
     content: @breadcrumb-divider;
     display: inline-block;
     margin: 0 @breadcrumb-divider-margin;
-    vertical-align: top; /* 2 */
     .hook-breadcrumb-divider;
 }
 

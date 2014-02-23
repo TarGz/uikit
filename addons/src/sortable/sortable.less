@@ -25,13 +25,15 @@
 // ========================================================================
 
 @sortable-padding-left:                         40px;
-@sortable-dragged-z-index:                      1040;
+@sortable-dragged-z-index:                      1050;
 
 @sortable-item-margin-bottom:                   10px;
 @sortable-item-padding:                         5px;
 @sortable-item-background:                      #f5f5f5;
 
 @sortable-placeholder-border:                   #ddd;
+
+@sortable-empty-height:                         40px;
 
 @sortable-handle-font-size:                     18px;
 @sortable-handle-color:                         #ddd;
@@ -105,7 +107,7 @@
  ========================================================================== */
 
 .uk-sortable-empty {
-    min-height: 40px;
+    min-height: @sortable-empty-height;
     .hook-sortable-empty;
 }
 
@@ -133,7 +135,9 @@
 /* Sub-object `uk-sortable-moving`
  ========================================================================== */
 
-.uk-sortable-moving { cursor: move; }
+.uk-sortable-moving,
+/* Needed if moving over links or buttons */
+.uk-sortable-moving * { cursor: move; }
 
 
 /* Sub-object `[data-action='toggle']`

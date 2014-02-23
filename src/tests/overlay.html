@@ -15,17 +15,19 @@
 
             <h1>Overlay</h1>
 
-            <h2>Image, anchor, text</h2>
+            <h2>Area with icon</h2>
+
+            <h3>Image, anchor, text</h3>
 
             <div class="uk-margin">
 
                 <div class="uk-overlay">
-                    <img src="http://placekitten.com/200/100" alt="">
+                    <img src="holder.js/200x100/auto" alt="">
                     <div class="uk-overlay-area"></div>
                 </div>
 
                 <a class="uk-overlay" href="#">
-                    <img src="http://placekitten.com/200/100" alt="">
+                    <img src="holder.js/200x100/auto" alt="">
                     <div class="uk-overlay-area"></div>
                 </a>
 
@@ -36,23 +38,23 @@
 
             </div>
 
-            <h2>Thumbnail</h2>
+            <h3>Thumbnail</h3>
 
             <div class="uk-grid" data-uk-grid-margin>
 
                 <div class="uk-width-medium-1-3">
-                    <a href="#" class="uk-thumbnail uk-overlay-toggle">
+                    <div class="uk-thumbnail uk-overlay-toggle">
                         <div class="uk-overlay">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-area"></div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
                 <div class="uk-width-medium-1-3">
                     <a class="uk-thumbnail uk-overlay-toggle" href="#">
                         <div class="uk-overlay">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-area"></div>
                         </div>
                         <div class="uk-thumbnail-caption">Caption <code>&lt;a&gt;</code></div>
@@ -62,7 +64,7 @@
                 <div class="uk-width-medium-1-3">
                     <figure class="uk-thumbnail">
                         <a class="uk-overlay" href="#">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-area"></div>
                         </a>
                         <figcaption class="uk-thumbnail-caption">Caption <code>&lt;figure&gt;</code></figcaption>
@@ -71,17 +73,98 @@
 
             </div>
 
-            <h2>Image, anchor, text</h2>
+            <h2>Area with content</h2>
+
+            <h3>Image, anchor, text</h3>
 
             <div class="uk-margin">
 
                 <div class="uk-overlay">
-                    <img src="http://placekitten.com/200/100" alt="">
+                    <img src="holder.js/200x100/auto" alt="">
+                    <div class="uk-overlay-area">
+                        <div class="uk-overlay-area-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</div>
+                    </div>
+                </div>
+
+                <a class="uk-overlay" href="#">
+                    <img src="holder.js/200x100/auto" alt="">
+                    <div class="uk-overlay-area">
+                        <div class="uk-overlay-area-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</div>
+                    </div>
+                </a>
+
+                <div class="uk-overlay uk-width-medium-1-4">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    <div class="uk-overlay-area">
+                        <div class="uk-overlay-area-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>Thumbnail</h3>
+
+            <div class="uk-grid" data-uk-grid-margin>
+
+                <div class="uk-width-medium-1-3">
+                    <div class="uk-thumbnail uk-overlay-toggle">
+                        <div class="uk-overlay">
+                            <img src="holder.js/400x250/auto" alt="">
+                            <div class="uk-overlay-area">
+                                <div class="uk-overlay-area-content">
+                                    <p>Lorem <a href="#">ipsum dolor</a> sit amet, consetetur sadipscing elitr.</p>
+                                    <button class="uk-button uk-button-primary">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-1-3">
+                    <div class="uk-thumbnail uk-overlay-toggle">
+                        <div class="uk-overlay">
+                            <img src="holder.js/400x250/auto" alt="">
+                            <div class="uk-overlay-area">
+                                <div class="uk-overlay-area-content">
+                                    <p>Lorem <a href="#">ipsum dolor</a> sit amet, consetetur sadipscing elitr.</p>
+                                    <button class="uk-button uk-button-primary">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-thumbnail-caption">Caption</div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-1-3">
+                    <figure class="uk-thumbnail">
+                        <div class="uk-overlay">
+                            <img src="holder.js/400x250/auto" alt="">
+                            <div class="uk-overlay-area">
+                                <div class="uk-overlay-area-content">
+                                    <p>Lorem <a href="#">ipsum dolor</a> sit amet, consetetur sadipscing elitr.</p>
+                                    <button class="uk-button uk-button-primary">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                        <figcaption class="uk-thumbnail-caption">Caption <code>&lt;figure&gt;</code></figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+            <h2>Caption</h2>
+
+            <h3>Image, anchor, text</h3>
+
+            <div class="uk-margin">
+
+                <div class="uk-overlay">
+                    <img src="holder.js/200x100/auto" alt="">
                     <div class="uk-overlay-caption">Some text</div>
                 </div>
 
                 <a class="uk-overlay" href="#">
-                    <img src="http://placekitten.com/200/100" alt="">
+                    <img src="holder.js/200x100/auto" alt="">
                     <div class="uk-overlay-caption">Some text</div>
                 </a>
 
@@ -92,23 +175,23 @@
 
             </div>
 
-            <h2>Thumbnail</h2>
+            <h3>Thumbnail</h3>
 
             <div class="uk-grid" data-uk-grid-margin>
 
                 <div class="uk-width-medium-1-3">
-                    <a href="#" class="uk-thumbnail uk-overlay-toggle">
+                    <div class="uk-thumbnail uk-overlay-toggle">
                         <div class="uk-overlay">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-caption">Some text</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
                 <div class="uk-width-medium-1-3">
                     <a class="uk-thumbnail uk-overlay-toggle" href="#">
                         <div class="uk-overlay">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-caption">Some text</div>
                         </div>
                         <div class="uk-thumbnail-caption">Caption <code>&lt;a&gt;</code></div>
@@ -118,7 +201,7 @@
                 <div class="uk-width-medium-1-3">
                     <figure class="uk-thumbnail">
                         <a class="uk-overlay" href="#">
-                            <img src="http://placekitten.com/400/250" alt="">
+                            <img src="holder.js/400x250/auto" alt="">
                             <div class="uk-overlay-caption">Some text</div>
                         </a>
                         <figcaption class="uk-thumbnail-caption">Caption <code>&lt;figure&gt;</code></figcaption>

@@ -1,18 +1,29 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
-/*
- * Based on https://github.com/garand/sticky
- */
+(function(addon) {
 
-(function(global, $, UI, $window, $document){
+    if (typeof define == "function" && define.amd) { // AMD
+        define(["uikit"], function(){
+            return jQuery.fn.uksticky ? jQuery.fn.uksticky : addon(window, window.jQuery, window.jQuery.UIkit);
+        });
+    }
+
+    if(window && window.jQuery && window.jQuery.UIkit) {
+        addon(window, window.jQuery, window.jQuery.UIkit);
+    }
+
+})(function(global, $, UI){
 
   var defaults = {
         top          : 0,
         bottom       : 0,
-        clsactive    : 'uk-sticky-active',
-        clswrapper   : 'uk-sticky-wrapper',
+        clsactive    : 'uk-active',
+        clswrapper   : 'uk-sticky',
         getWidthFrom : ''
       },
+
+      $window = $(window),
+      $document = $(document),
 
       sticked = [],
 
@@ -78,7 +89,7 @@
             if(stickyElement.data("sticky")) return;
 
             var stickyId      = stickyElement.attr('id') || ("s"+Math.ceil(Math.random()*10000)),
-                wrapper       = $('<div></div>').attr('id', stickyId + '-sticky-wrapper').addClass(o.clswrapper);
+                wrapper       = $('<div></div>').attr('id', 'sticky-'+stickyId).addClass(o.clswrapper);
 
             stickyElement.wrapAll(wrapper);
 
@@ -106,13 +117,8 @@
       };
 
     // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
-    if (window.addEventListener) {
-      window.addEventListener('scroll', scroller, false);
-      window.addEventListener('resize', resizer, false);
-    } else if (window.attachEvent) {
-      window.attachEvent('onscroll', scroller);
-      window.attachEvent('onresize', resizer);
-    }
+    window.addEventListener('scroll', scroller, false);
+    window.addEventListener('resize', resizer, false);
 
     $.fn.uksticky = function(method) {
       if (methods[method]) {
@@ -138,4 +144,5 @@
       }, 0);
     });
 
-})(this, jQuery, jQuery.UIkit, $(window), $(document));
+    return $.fn.uksticky;
+});

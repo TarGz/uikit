@@ -1,14 +1,31 @@
-(function($, doc, global) {
+(function(core) {
+
+     if (typeof define == "function" && define.amd) { // AMD
+         define("uikit", function(){
+             return core(window, window.jQuery, window.document);
+         });
+     }
+
+     if (!window.jQuery) {
+         throw new Error( "UIkit requires jQuery" );
+     }
+
+     if (window && window.jQuery) {
+         core(window, window.jQuery, window.document);
+     }
+
+
+})(function(global, $, doc) {
 
     "use strict";
 
     var UI = $.UIkit || {}, $html = $("html"), $win = $(window);
 
     if (UI.fn) {
-        return;
+        return UI;
     }
 
-    UI.version = '2.0.0';
+    UI.version = '2.3.1';
 
     UI.fn = function(command, options) {
 
@@ -52,7 +69,13 @@
     })();
 
     UI.support.requestAnimationFrame = global.requestAnimationFrame || global.webkitRequestAnimationFrame || global.mozRequestAnimationFrame || global.msRequestAnimationFrame || global.oRequestAnimationFrame || function(callback){ global.setTimeout(callback, 1000/60); };
-    UI.support.touch                 = (('ontouchstart' in window) || (global.DocumentTouch && document instanceof global.DocumentTouch)  || (global.navigator['msPointerEnabled'] && global.navigator['msMaxTouchPoints'] > 0) || false);
+    UI.support.touch                 = (
+        ('ontouchstart' in window && navigator.userAgent.toLowerCase().match(/mobile|tablet/)) ||
+        (global.DocumentTouch && document instanceof global.DocumentTouch)  ||
+        (global.navigator['msPointerEnabled'] && global.navigator['msMaxTouchPoints'] > 0) || //IE 10
+        (global.navigator['pointerEnabled'] && global.navigator['maxTouchPoints'] > 0) || //IE >=11
+        false
+    );
     UI.support.mutationobserver      = (global.MutationObserver || global.WebKitMutationObserver || global.MozMutationObserver || null);
 
     UI.Utils = {};
@@ -163,4 +186,6 @@
     // add touch identifier class
     $html.addClass(UI.support.touch ? "uk-touch" : "uk-notouch");
 
-})(jQuery, document, window);
+    return UI;
+
+});

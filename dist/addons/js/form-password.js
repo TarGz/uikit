@@ -1,6 +1,18 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
-(function($, UI){
+(function(addon) {
+
+    if (typeof define == "function" && define.amd) { // AMD
+        define(["uikit"], function(){
+            return jQuery.UIkit.formPassword ? jQuery.UIkit.formPassword : addon(window, window.jQuery, window.jQuery.UIkit);
+        });
+    }
+
+    if(window && window.jQuery && window.jQuery.UIkit) {
+        addon(window, window.jQuery, window.jQuery.UIkit);
+    }
+
+})(function(global, $, UI){
 
     var FormPassword = function(element, options) {
 
@@ -47,4 +59,6 @@
         }
     });
 
-})(jQuery, jQuery.UIkit);
+    return FormPassword;
+
+});

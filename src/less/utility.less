@@ -10,13 +10,14 @@
 //                  `uk-height-1-1`
 //                  `uk-responsive-*`
 //                  `uk-margin-*`
-//                  `uk-border-circle`
+//                  `uk-border-*`
 //                  `uk-heading-*`
 //                  `uk-link-muted`
 //                  `uk-scrollable-*`
 //                  `uk-display-*`
 //                  `uk-visible-*`
 //                  `uk-hidden-*`
+//                  `uk-invisible`
 //
 // ========================================================================
 
@@ -33,8 +34,11 @@
 @utility-align-horizontal:                      15px;
 @utility-align-vertical:                        15px;
 
-@utility-margin-vertical:                       15px;
-@utility-margin-horizontal:                     15px;
+@utility-margin:                                15px;
+@utility-margin-small:                          5px;
+@utility-margin-large:                          50px;
+
+@utility-border-rounded:                        5px;
 
 @utility-heading-large-font-size:               52px;
 @utility-heading-large-line-height:             64px;
@@ -47,6 +51,7 @@
 @utility-scrollable-box-height:                 170px;
 @utility-scrollable-box-padding:                10px;
 @utility-scrollable-box-border:                 #ddd;
+@utility-scrollable-box-border-width:           1px;
 
 
 /* ========================================================================
@@ -64,7 +69,7 @@
     .hook-container;
 }
 
-/* Only large screens */
+/* Large screen and bigger */
 @media (min-width: @breakpoint-xlarge) {
 
     .uk-container {
@@ -134,7 +139,8 @@
 .uk-float-left { float: left; }
 .uk-float-right { float: right; }
 
-[class*='uk-float-'] { max-width: 100%; } /* 1 */
+/* 1 */
+[class*='uk-float-'] { max-width: 100%; }
 
 
 /* Alignment of images and objects
@@ -159,7 +165,7 @@
     float: right;
 }
 
-/* Only tablets and desktop */
+/* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
     .uk-align-medium-left {
@@ -189,9 +195,9 @@
  * Remove whitespace between child elements when using `inline-block`
  */
 
-.uk-vertical-align { letter-spacing: -0.31em; }
+.uk-vertical-align { font-size: 0.01px; }
 
-/*  
+/*
  *  The `uk-vertical-align` container needs a specific height
  */
 
@@ -210,14 +216,15 @@
 .uk-vertical-align-middle,
 .uk-vertical-align-bottom {
     display: inline-block;
-    letter-spacing: normal; /* 1 */
     max-width: 100%;
+    /* 1 */
+    font-size: 1rem;
 }
 
 .uk-vertical-align-middle { vertical-align: middle; }
 .uk-vertical-align-bottom { vertical-align: bottom; }
 
-/*  
+/*
  *  This helper class is very useful to extend the `html` and `body` element to the full height of the page.
  */
 
@@ -234,12 +241,12 @@
 
 .uk-responsive-width,
 .uk-responsive-height {
-    -moz-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 /*
- * Responsiveness: Sets a maxium width relative to the parent and auto scales the height
+ * Responsiveness: Sets a maximum width relative to the parent and auto scales the height
  */
 
 .uk-responsive-width {
@@ -248,7 +255,7 @@
 }
 
 /*
- * Responsiveness: Sets a maxium height relative to the parent and auto scales the width
+ * Responsiveness: Sets a maximum height relative to the parent and auto scales the width
  * Only works if the parent element has a fixed height.
  */
 
@@ -261,26 +268,42 @@
 /* Margin
  ========================================================================== */
 
-/* 
- * Create a block with the same margin of a paragraph
- */
-
-.uk-margin { margin-bottom: @utility-margin-vertical; }
-
 /*
+ * Create a block with the same margin of a paragraph
  * Add margin if adjacent element
  */
 
-* + .uk-margin { margin-top: @utility-margin-vertical; }
+.uk-margin { margin-bottom: @utility-margin; }
+* + .uk-margin { margin-top: @utility-margin; }
+
+.uk-margin-top { margin-top: @utility-margin !important; }
+.uk-margin-bottom { margin-bottom: @utility-margin !important; }
+.uk-margin-left { margin-left: @utility-margin !important; }
+.uk-margin-right { margin-right: @utility-margin !important; }
 
 /*
- * Margins
+ * Larger margins
  */
 
-.uk-margin-top { margin-top: @utility-margin-vertical !important; }
-.uk-margin-bottom { margin-bottom: @utility-margin-vertical !important; }
-.uk-margin-left { margin-left: @utility-margin-horizontal !important; }
-.uk-margin-right { margin-right: @utility-margin-horizontal !important; }
+.uk-margin-large { margin-bottom: @utility-margin-large; }
+* + .uk-margin-large { margin-top: @utility-margin-large; }
+
+.uk-margin-large-top { margin-top: @utility-margin-large !important; }
+.uk-margin-large-bottom { margin-bottom: @utility-margin-large !important; }
+.uk-margin-large-left { margin-left: @utility-margin-large !important; }
+.uk-margin-large-right { margin-right: @utility-margin-large !important; }
+
+/*
+ * Smaller margins
+ */
+
+.uk-margin-small { margin-bottom: @utility-margin-small; }
+* + .uk-margin-small { margin-top: @utility-margin-small; }
+
+.uk-margin-small-top { margin-top: @utility-margin-small !important; }
+.uk-margin-small-bottom { margin-bottom: @utility-margin-small !important; }
+.uk-margin-small-left { margin-left: @utility-margin-small !important; }
+.uk-margin-small-right { margin-right: @utility-margin-small !important; }
 
 /*
  * Remove margins
@@ -294,20 +317,21 @@
 /* Border
  ========================================================================== */
 
- .uk-border-circle { border-radius: 50%; }
+.uk-border-circle { border-radius: 50%; }
+.uk-border-rounded { border-radius: @utility-border-rounded; }
 
 
 /* Headings
  ========================================================================== */
 
-/* Only tablets and desktops */
+/* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
     .uk-heading-large {
         font-size: @utility-heading-large-font-size;
         line-height: @utility-heading-large-line-height;
     }
-    
+
 }
 
 
@@ -329,8 +353,9 @@
  */
 
 .uk-scrollable-text {
-    max-height: @utility-scrollable-text-height;
+    height: @utility-scrollable-text-height;
     overflow-y: scroll;
+    resize: both;
 }
 
 /*
@@ -340,10 +365,11 @@
 .uk-scrollable-box {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    max-height: @utility-scrollable-box-height;
+    height: @utility-scrollable-box-height;
     padding: @utility-scrollable-box-padding;
-    border: 1px solid @utility-scrollable-box-border;
+    border: @utility-scrollable-box-border-width solid @utility-scrollable-box-border;
     overflow: auto;
+    resize: both;
     .hook-scrollable-box;
 }
 
@@ -371,7 +397,7 @@
  */
 
 
-/* Only desktops */
+/* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
     .uk-visible-small { display: none !important; }
@@ -389,7 +415,7 @@
 
 }
 
-/* Only phones */
+/* Phone landscape and smaller */
 @media (max-width: @breakpoint-small-max) {
 
     .uk-visible-medium { display: none !important; }
@@ -404,13 +430,18 @@
     visibility: hidden !important;
 }
 
+/* It's hidden, but still affects layout */
+.uk-invisible { visibility: hidden !important; }
+
 /* Show on hover */
-.uk-visible-hover:hover .uk-hidden {
+.uk-visible-hover:hover .uk-hidden,
+.uk-visible-hover:hover .uk-invisible {
     display: block !important;
     visibility: visible !important;
 }
 
-.uk-visible-hover-inline:hover .uk-hidden {
+.uk-visible-hover-inline:hover .uk-hidden,
+.uk-visible-hover-inline:hover .uk-invisible {
     display: inline-block !important;
     visibility: visible !important;
 }

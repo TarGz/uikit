@@ -2,46 +2,45 @@
 
     "use strict";
 
-    var win         = $(window),
-        event       = 'resize orientationchange',
+    var win = $(window), event = 'resize orientationchange';
 
-        GridMatch = function(element, options) {
+    var GridMatchHeight = function(element, options) {
 
-            var $this = this, $element = $(element);
+        var $this = this, $element = $(element);
 
-            if($element.data("gridMatchHeight")) return;
+        if($element.data("gridMatchHeight")) return;
 
-            this.options  = $.extend({}, GridMatch.defaults, options);
+        this.options  = $.extend({}, GridMatchHeight.defaults, options);
 
-            this.element  = $element;
-            this.columns  = this.element.children();
-            this.elements = this.options.target ? this.element.find(this.options.target) : this.columns;
+        this.element  = $element;
+        this.columns  = this.element.children();
+        this.elements = this.options.target ? this.element.find(this.options.target) : this.columns;
 
-            if (!this.columns.length) return;
+        if (!this.columns.length) return;
 
-            win.on(event, (function() {
-                var fn = function() {
-                    $this.match();
-                };
-
-                $(function() {
-                    fn();
-                    win.on("load", fn);
-                });
-
-                return UI.Utils.debounce(fn, 150);
-            })());
-
-            $(document).on("uk-domready", function(e) {
-                $this.columns  = $this.element.children();
-                $this.elements = $this.options.target ? $this.element.find($this.options.target) : $this.columns;
+        win.on(event, (function() {
+            var fn = function() {
                 $this.match();
+            };
+
+            $(function() {
+                fn();
+                win.on("load", fn);
             });
 
-            this.element.data("gridMatch", this);
-        };
+            return UI.Utils.debounce(fn, 150);
+        })());
 
-    $.extend(GridMatch.prototype, {
+        $(document).on("uk-domready", function(e) {
+            $this.columns  = $this.element.children();
+            $this.elements = $this.options.target ? $this.element.find($this.options.target) : $this.columns;
+            $this.match();
+        });
+
+        this.element.data("gridMatchHeight", this);
+    };
+
+    $.extend(GridMatchHeight.prototype, {
 
         match: function() {
 
@@ -57,17 +56,38 @@
 
             if (stacked) return;
 
-            this.elements.each(function() {
-                max = Math.max(max, $(this).outerHeight());
-            }).each(function(i) {
+            if(this.options.row) {
 
-                var element   = $(this),
-                    boxheight = element.css("box-sizing") == "border-box" ? "outerHeight" : "height",
-                    box       = $this.columns.eq(i),
-                    height    = (element.height() + (max - box[boxheight]()));
+                this.element.width(); // force redraw
 
-                element.css('min-height', height + 'px');
-            });
+                setTimeout(function(){
+
+                    var lastoffset = false, group = [];
+
+                    $this.elements.each(function(i) {
+                        var ele = $(this), offset = ele.offset().top;
+
+                        if(offset != lastoffset && group.length) {
+
+                            $this.matchHeights($(group));
+                            group  = [];
+                            offset = ele.offset().top;
+                        }
+
+                        group.push(ele);
+                        lastoffset = offset;
+                    });
+
+                    if(group.length) {
+                        $this.matchHeights($(group));
+                    }
+
+                }, 0);
+
+            } else {
+
+                this.matchHeights(this.elements);
+            }
 
             return this;
         },
@@ -75,89 +95,50 @@
         revert: function() {
             this.elements.css('min-height', '');
             return this;
+        },
+
+        matchHeights: function(elements){
+
+            if(elements.length < 2) return;
+
+            var max = 0;
+
+            elements.each(function() {
+                max = Math.max(max, $(this).outerHeight());
+            }).each(function(i) {
+
+                var element = $(this),
+                    height  = max - (element.outerHeight() - element.height());
+
+                element.css('min-height', height + 'px');
+            });
         }
 
     });
 
-    GridMatch.defaults = {
-        "target": false
+    GridMatchHeight.defaults = {
+        "target" : false,
+        "row"    : false
     };
 
-    var GridMargin = function(element) {
+    var GridMargin = function(element, options) {
 
-        var $this = this, $element = $(element);
+        var $element = $(element);
 
         if($element.data("gridMargin")) return;
 
-        this.element = $element;
-        this.columns = this.element.children();
+        this.options  = $.extend({}, GridMargin.defaults, options);
 
-        if (!this.columns.length) return;
+        var stackMargin = new UI.stackMargin($element, this.options);
 
-        win.on(event, (function() {
-            var fn = function() {
-                $this.process();
-            };
-
-            $(function() {
-                fn();
-                win.on("load", fn);
-            });
-
-            return UI.Utils.debounce(fn, 150);
-        })());
-
-        $(document).on("uk-domready", function(e) {
-            $this.columns  = $this.element.children();
-            $this.process();
-        });
-
-        this.element.data("gridMargin", this);
+        $element.data("gridMargin", stackMargin);
     };
 
-    $.extend(GridMargin.prototype, {
+    GridMargin.defaults = {
+        cls: 'uk-grid-margin'
+    };
 
-        process: function() {
-
-            this.revert();
-
-            var skip         = false,
-                firstvisible = this.columns.filter(":visible:first"),
-                offset       = firstvisible.length ? firstvisible.offset().top : false;
-
-            if (offset === false) return;
-
-            this.columns.each(function() {
-
-                var column = $(this);
-
-                if (column.is(":visible")) {
-
-                    if (skip) {
-                        column.addClass("uk-grid-margin");
-                    } else {
-                        if (column.offset().top != offset) {
-                            column.addClass("uk-grid-margin");
-                            skip = true;
-                        }
-                    }
-                }
-
-            });
-
-            return this;
-        },
-
-        revert: function() {
-            this.columns.removeClass('uk-grid-margin');
-            return this;
-        }
-
-    });
-
-    GridMargin.defaults = {};
-
-    UI["gridMatch"]  = GridMatch;
+    UI["gridMatchHeight"]  = GridMatchHeight;
     UI["gridMargin"] = GridMargin;
 
     // init code
@@ -165,8 +146,8 @@
         $("[data-uk-grid-match],[data-uk-grid-margin]").each(function() {
             var grid = $(this), obj;
 
-            if (grid.is("[data-uk-grid-match]") && !grid.data("gridMatch")) {
-                obj = new GridMatch(grid, UI.Utils.options(grid.attr("data-uk-grid-match")));
+            if (grid.is("[data-uk-grid-match]") && !grid.data("gridMatchHeight")) {
+                obj = new GridMatchHeight(grid, UI.Utils.options(grid.attr("data-uk-grid-match")));
             }
 
             if (grid.is("[data-uk-grid-margin]") && !grid.data("gridMargin")) {

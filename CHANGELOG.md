@@ -1,22 +1,129 @@
 # Changelog
 
 ### WIP
+
+  - IMPORTANT: Renamed uk-text-info to uk-text-primary including variable names
+  - IMPORTANT: Renamed uk-notify-message-info to uk-notify-message-primary including variable names
+  - IMPORTANT: Renamed @grid-large-gutter-horizontal to @grid-gutter-large-horizontal
+  - IMPORTANT: Renamed @grid-large-gutter-vertical to @grid-gutter-large-vertical
+  - IMPORTANT: Renamed @panel-divider-large-gutter to @panel-divider-gutter-large
+  - Renamed some global variables in themes
+  - Refactored grid component
+  - Added grid-match only within rows option
+  - Added grid width classes
+  - Added grid gutter small classes
+  - Added width small classes
+  - Added AMD support
+  - Added margin classes to utility component
+  - Added border rounded to utility component
+  - Added resize property to scrollables in utility component
+  - Added text center small and medium classes
+  - Added markdownarea style for gradient and almost flat theme
+  - Added new hooks to comment, form and subnav component
+  - Removed box-shadow for invalid controls in Firefox
+  - Removed default input style for iOS
+  - Fixed z-index issues
+  - Fixed double click issue in form-file add-on
+  - Fixed textarea height not being resizable
+  - Fixed badge border-radius
+  - Fixed wrong scaling calculation in overlay component for Chrome
+  - Fixed notify padding
+  - Fixed body content scrolling if modal is open
+  - Fixed gap in navbar gradient and almost flat theme
+  - Whitespace hack now uses font-size
+
+**Documentation and repository**
+
+  - Added layout examples
+  - Added placeholder images in docs
+  - Added holder.js for placeholder images in tests
+  - Updated community section on frontpage
+  - Renamed uk-width-custom to uk-width in docs and tests
+  - Fixed overview test
+
+### 2.3.1 (January 31, 2014)
+
+  - Fixed button text decoration
+
+### 2.3.0 (January 31, 2014)
+
+  - IMPORTANT: Removed uk-button-expand, use uk-width-1-1 instead
+  - IMPORTANT: Renamed @form-blank-outline to @form-blank-border
+  - Updated to Normalize 3.0.0
+  - Added more variables to all components
+  - Added panel teaser to panel component
+  - Added invisible to utility component
+  - Added padding variable for thumbnail caption
+  - Updated links in base component
+  - Panel component works now with inline elements
+  - Background color now set on tr elements in table component
+  - Removed vertical align from breadcrumbs
+  - Fixed button link in button component
+  - Fixed cursor in sortable add-on
+  - Fixed links in overlay-area-content
+  - Fixed tooltip boundary check
+
+**Documentation and repository**
+
+  - Better comments for compiled CSS
+  - Updated panel docs and tests
+  - Fixed default theme in tests
+
+### 2.2.0 (January 23, 2014)
+
+  - Added alert, confirm shorcut methods to modal component
+  - Added form-file add-on
+  - Added primary comment to comment component
+  - Added overlay-area-content to overlay component
+  - Added margin-small to utility component
+  - Added text-nowrap to text component
+  - Added data-uk-margin to utility component
+  - Switcher now activates first toggler when no uk-active class is set
+  - Extended Notify message api wit content+status methods
+  - Fixed Offcanvas in RTL mode
+  - Fixed Tooltips in Offcanvas
+  - Fixed sticky add-on jQuery error where $ is not available
+  - Removed hgroup in normalize because it was deprecated in HTML5
+  - Fixed data-uk-grid-match
+
+**Documentation and repository**
+
+  - Added form-file docs and tests
+  - Updated LESS to 1.6.1
+  - Updated overlay docs and tests
+  - Updated utility docs and tests
+  - Updated comment docs and tests
+  - Optimized docs and tests with data-uk-margin
+
+### 2.1.0 (January 07, 2014)
+  - Added notify add-on
   - Added border-circle to utility component
-  - Added notify addon
+  - Added more variables to sortable add-on
+  - Added modifier to flip form icons
+  - Updated form icons to work with form size modifiers
+  - Replace fixed value with variable in nav component
   - Fixed background position in RTL mode
   - Fixed delayed dropdown trigger on touch devices
   - Fixed jumping when dragging sortables
+  - Fixed nested comments indention on small screens
+  - Fixed style for inputs without type attribute
+
+**Documentation and repository**
+
+  - Added new notify add-on
+  - Fixed tooltip component
+  - Fixed tests link
 
 ### 2.0.0 (December 11, 2013)
 
   - Added toggle component
   - Added form-icon to form component
-  - Added datepicker addon
-  - Added form-password addon
-  - Added markdown area addon
-  - Added sortable addon
-  - Added sticky addon
-  - Added timepicker addon
+  - Added datepicker add-on
+  - Added form-password add-on
+  - Added markdown area add-on
+  - Added sortable add-on
+  - Added sticky add-on
+  - Added timepicker add-on
   - Added outerclick support for dropdowns in hover mode
   - Added touch events support for Windows 8 phones
   - Added miscellaneous hooks
@@ -28,7 +135,7 @@
   - Refactored repository structure
   - Refactored variables
   - Added Grunt task to index new themes ( usage: grunt indexthemes )
-  - Added new UIkit addons and components
+  - Added new UIkit add-ons and components
   - UIkit tests moved to /src
 
 ### 1.2.1 (December 03, 2013)
@@ -109,4 +216,4 @@
 
 ### 1.0.0 (July 19, 2013)
 
-  * Initial Release
+  - Initial Release

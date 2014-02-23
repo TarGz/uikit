@@ -1,10 +1,23 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
-(function($, UI){
+(function(addon) {
 
-    var container = null,
-        messages  = {},
-        notify    =  function(options){
+    if (typeof define == "function" && define.amd) { // AMD
+        define(["uikit"], function(){
+            return jQuery.UIkit.notify ? jQuery.UIkit.notify : addon(window, window.jQuery, window.jQuery.UIkit);
+        });
+    }
+
+    if(window && window.jQuery && window.jQuery.UIkit) {
+        addon(window, window.jQuery, window.jQuery.UIkit);
+    }
+
+})(function(global, $, UI){
+
+    var containers = {},
+        messages   = {},
+
+        notify     =  function(options){
 
             if ($.type(options) == 'string') {
                 options = { message: options };
@@ -16,14 +29,12 @@
 
             return (new Message(options)).show();
         },
-        closeAll  = function(){
-            for(var id in messages) { messages[id].close(); }
-        },
-        icons     = {
-            "info"    : 'uk-icon-exclamation-circle',
-            "warning" : 'uk-icon-warning',
-            "success" : 'uk-icon-check',
-            "danger"  : 'uk-icon-bolt'
+        closeAll  = function(group, instantly){
+            if(group) {
+                for(var id in messages) { if(group===messages[id].group) messages[id].close(instantly); }
+            } else {
+                for(var id in messages) { messages[id].close(instantly); }
+            }
         };
 
     var Message = function(options){
@@ -33,31 +44,30 @@
         this.options = $.extend({}, Message.defaults, options);
 
         this.uuid    = "ID"+(new Date().getTime())+"RAND"+(Math.ceil(Math.random() * 100000));
-        this.element = this.status = $([
+        this.element = $([
 
-            '<div class="uk-notify-message" data-status="'+this.options.status+'">',
+            '<div class="uk-notify-message">',
                 '<a class="uk-close"></a>',
-                (this.options.title ? '<strong>'+this.options.title+'</strong>':''),
                 '<div>'+this.options.message+'</div>',
             '</div>'
 
         ].join('')).data("notifyMessage", this);
 
-        // icon
-        if (this.options.icon!==false) {
-
-            var icon = "";
-
-            if(!this.options.icon && icons[this.options.status]) {
-                icon = icons[this.options.status];
-            } else if(this.options.icon) {
-                icon = icons[this.options.icon];
-            }
-
-            this.element.append('<span class="'+icon+'"></span>').addClass("uk-notify-message-icon");
+        // status
+        if (this.options.status) {
+            this.element.addClass('uk-notify-message-'+this.options.status);
+            this.currentstatus = this.options.status;
         }
 
+        this.group = this.options.group;
+
         messages[this.uuid] = this;
+
+        if(!containers[this.options.pos]) {
+            containers[this.options.pos] = $('<div class="uk-notify uk-notify-'+this.options.pos+'"></div>').appendTo('body').on("click", ".uk-notify-message", function(){
+                $(this).data("notifyMessage").close();
+            });
+        }
     };
 
 
@@ -66,6 +76,8 @@
         uuid: false,
         element: false,
         timout: false,
+        currentstatus: "",
+        group: false,
 
         show: function() {
 
@@ -73,51 +85,93 @@
 
             var $this = this;
 
-            container.prepend(this.element);
+            containers[this.options.pos].show().prepend(this.element);
 
-            if (this.options.timeout) {
+            var marginbottom = parseInt(this.element.css("margin-bottom"), 10);
 
-                var closefn = function(){ $this.close(); };
+            this.element.css({"opacity":0, "margin-top": -1*this.element.outerHeight(), "margin-bottom":0}).animate({"opacity":1, "margin-top": 0, "margin-bottom":marginbottom}, function(){
 
-                this.timeout = setTimeout(closefn, $this.options.timeout);
+                if ($this.options.timeout) {
 
-                this.element.hover(
-                    function() { clearTimeout($this.timeout); },
-                    function() { $this.timeout = setTimeout(closefn, $this.options.timeout);  }
-                );
-            }
+                    var closefn = function(){ $this.close(); };
+
+                    $this.timeout = setTimeout(closefn, $this.options.timeout);
+
+                    $this.element.hover(
+                        function() { clearTimeout($this.timeout); },
+                        function() { $this.timeout = setTimeout(closefn, $this.options.timeout);  }
+                    );
+                }
+
+            });
 
             return this;
         },
 
-        close: function() {
+        close: function(instantly) {
+
+            var $this    = this,
+                finalize = function(){
+                    $this.element.remove();
+
+                    if(!containers[$this.options.pos].children().length) {
+                        containers[$this.options.pos].hide();
+                    }
+
+                    delete messages[$this.uuid];
+                };
+
             if(this.timeout) clearTimeout(this.timeout);
-            delete messages[this.uuid];
-            this.element.remove();
+
+            if(instantly) {
+                finalize();
+            } else {
+                this.element.animate({"opacity":0, "margin-top": -1* this.element.outerHeight(), "margin-bottom":0}, function(){
+                    finalize();
+                });
+            }
+        },
+
+        content: function(html){
+
+            var container = this.element.find(">div");
+
+            if(!html) {
+                return container.html();
+            }
+
+            container.html(html);
+
+            return this;
+        },
+
+        status: function(status) {
+
+            if(!status) {
+                return this.currentstatus;
+            }
+
+            this.element.removeClass('uk-notify-message-'+this.currentstatus).addClass('uk-notify-message-'+status);
+
+            this.currentstatus = status;
+
+            return this;
         }
     });
 
     Message.defaults = {
-        icon: null,
-        title: false,
         message: "",
-        status: "info",
-        timeout: 5000
+        status: "",
+        timeout: 5000,
+        group: null,
+        pos: 'top-center'
     };
-
-    $(function(){
-
-        var msg;
-
-        container = $('<div class="uk-notify-container"></div>').appendTo('body').on("click", ".uk-close", function(){
-            msg = $(this).closest('.uk-notify-message');
-            if (msg.length) msg.data("notifyMessage").close();
-        });
-    });
 
 
     UI["notify"]          = notify;
     UI["notify"].message  = Message;
     UI["notify"].closeAll = closeAll;
 
-})(jQuery, jQuery.UIkit);
+    return notify;
+
+});

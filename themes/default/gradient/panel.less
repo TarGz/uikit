@@ -17,6 +17,7 @@
 @panel-box-color:                               @global-color;
 @panel-box-title-color:                         @global-color;
 @panel-box-badge-right:                         @panel-box-badge-top;
+@panel-box-teaser-margin:                       -(@panel-box-padding + 1);
 
 @panel-box-secondary-background:                #fff;
 
@@ -24,7 +25,7 @@
 @panel-header-title-color:                      @global-color;
 
 @panel-divider-gutter:                          @global-grid-gutter;
-@panel-divider-large-gutter:                    @global-grid-large-gutter;
+@panel-divider-gutter-large:                    @global-grid-gutter-large;
 @panel-divider-border:                          @global-border;
 
 //
@@ -69,4 +70,11 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-panel-misc() {}
+.hook-panel-misc() {
+
+    .uk-panel-box .uk-panel-teaser > * {
+        border-top-left-radius: @global-border-radius;
+        border-top-right-radius: @global-border-radius;
+    }
+
+}

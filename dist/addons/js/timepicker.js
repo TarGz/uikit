@@ -1,10 +1,22 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
 /*
  * Based on https://github.com/jdewit/bootstrap-timepicker
  */
 
-(function(global, $, UI){
+(function(addon) {
+
+     if (typeof define == "function" && define.amd) { // AMD
+         define(["uikit"], function(){
+            return jQuery.UIkit.timepicker ? jQuery.UIkit.timepicker : addon(window, window.jQuery, window.jQuery.UIkit);
+         });
+     }
+
+     if(window && window.jQuery && window.jQuery.UIkit) {
+         addon(window, window.jQuery, window.jQuery.UIkit);
+     }
+
+})(function(global, $, UI){
 
     // Timepicker
 
@@ -518,4 +530,8 @@
         }
     });
 
-})(this, jQuery, jQuery.UIkit);
+    UI["timepicker"] = TimePicker;
+
+    return TimePicker;
+
+});

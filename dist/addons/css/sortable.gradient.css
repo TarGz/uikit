@@ -1,4 +1,4 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
 /* ========================================================================
    Addon: Sortable
@@ -18,7 +18,7 @@
  ========================================================================== */
 .uk-sortable-list-dragged {
   position: absolute;
-  z-index: 1040;
+  z-index: 1050;
   padding-left: 0;
   pointer-events: none;
 }
@@ -69,7 +69,8 @@
 }
 /* Sub-object `uk-sortable-moving`
  ========================================================================== */
-.uk-sortable-moving {
+.uk-sortable-moving,
+.uk-sortable-moving * {
   cursor: move;
 }
 /* Sub-object `[data-action='toggle']`

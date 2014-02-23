@@ -1,48 +1,94 @@
-/*! UIkit 2.0.0 | http://www.getuikit.com | (c) 2013 YOOtheme | MIT License */
+/*! UIkit 2.3.1 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
 /* ========================================================================
-   Addon: notify
+   Addon: Notify
  ========================================================================== */
-.uk-notify-container {
+/*
+ * Message container for positioning
+ */
+.uk-notify {
   position: fixed;
-  top: 5px;
-  right: 5px;
-  width: 350px;
-  font-size: 13px;
-  z-index: 1000;
+  top: 10px;
+  left: 10px;
+  z-index: 1040;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  width: 350px;
 }
+/* Position modifiers
+========================================================================== */
+.uk-notify-top-right,
+.uk-notify-bottom-right {
+  left: auto;
+  right: 10px;
+}
+.uk-notify-top-center,
+.uk-notify-bottom-center {
+  left: 50%;
+  margin-left: -175px;
+}
+.uk-notify-bottom-left,
+.uk-notify-bottom-right,
+.uk-notify-bottom-center {
+  top: auto;
+  bottom: 10px;
+}
+/* Responsiveness
+========================================================================== */
+/* Phones portrait and smaller */
+@media (max-width: 479px) {
+  /*
+     * Fit in small screen
+     */
+  .uk-notify {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+  }
+}
+/* Sub-object: `uk-notify-message`
+========================================================================== */
 .uk-notify-message {
   position: relative;
-  padding: 10px 20px 10px 10px;
-  margin-bottom: 5px;
-  background: #39f;
-  color: #fff;
-  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+  padding: 15px;
+  background: #444444;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
 }
+/* Close in notify
+ ========================================================================== */
 .uk-notify-message > .uk-close {
-  position: absolute;
-  right: 5px;
-  top: 10px;
+  visibility: hidden;
+  float: right;
 }
-.uk-notify-message > strong {
-  color: #fff;
+.uk-notify-message:hover > .uk-close {
+  visibility: visible;
 }
-.uk-notify-message > span {
-  position: absolute;
-  left: 10px;
-  top: 13px;
+/* Modifier: `uk-alert-info`
+ ========================================================================== */
+.uk-notify-message-primary {
+  background: #ebf7fd;
+  color: #2d7091;
 }
-.uk-notify-message.uk-notify-message-icon {
-  padding-left: 30px;
+/* Modifier: `uk-alert-success`
+ ========================================================================== */
+.uk-notify-message-success {
+  background: #f2fae3;
+  color: #659f13;
 }
-.uk-notify-message[data-status=success] {
-  background: #8cc14c;
+/* Modifier: `uk-notify-message-warning`
+ ========================================================================== */
+.uk-notify-message-warning {
+  background: #fffceb;
+  color: #e28327;
 }
-.uk-notify-message[data-status=warning] {
-  background: #faa732;
-}
-.uk-notify-message[data-status=danger] {
-  background: #da314b;
+/* Modifier: `uk-notify-message-danger`
+ ========================================================================== */
+.uk-notify-message-danger {
+  background: #fff1f0;
+  color: #d85030;
 }

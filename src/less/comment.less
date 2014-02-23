@@ -9,6 +9,7 @@
 //                  `uk-comment-meta`
 //                  `uk-comment-body`
 //                  `uk-comment-list`
+//                  `uk-comment-primary`
 //
 // ========================================================================
 
@@ -20,9 +21,11 @@
 
 @comment-avatar-margin-right:                   15px;
 
+@comment-title-margin-top:                      5px;
 @comment-title-font-size:                       16px;
 @comment-title-line-height:                     22px;
 
+@comment-meta-margin-top:                       2px;
 @comment-meta-color:                            #999;
 @comment-meta-font-size:                        11px;
 @comment-meta-line-height:                      16px;
@@ -35,11 +38,15 @@
    Component: Comment
  ========================================================================== */
 
+.uk-comment {
+    .hook-comment;
+}
+
 
 /* Sub-object `uk-comment-header`
  ========================================================================== */
 
-.uk-comment-header { 
+.uk-comment-header {
     margin-bottom: @comment-header-margin-bottom;
     .hook-comment-header;
 }
@@ -70,11 +77,11 @@
 /* Sub-object `uk-comment-title`
  ========================================================================== */
 
-.uk-comment-title { 
-    margin: 5px 0 0 0;
+.uk-comment-title {
+    margin: @comment-title-margin-top 0 0 0;
     font-size: @comment-title-font-size;
     line-height: @comment-title-line-height;
-    .hook-comment-title; 
+    .hook-comment-title;
 }
 
 
@@ -82,7 +89,7 @@
  ========================================================================== */
 
 .uk-comment-meta {
-    margin: 2px 0 0 0;
+    margin: @comment-meta-margin-top 0 0 0;
     font-size: @comment-meta-font-size;
     line-height: @comment-meta-line-height;
     color: @comment-meta-color;
@@ -92,6 +99,10 @@
 
 /* Sub-object `uk-comment-body`
  ========================================================================== */
+
+.uk-comment-body {
+    .hook-comment-body;
+}
 
 /*
  * Remove margin from the last-child
@@ -110,12 +121,26 @@
 
 .uk-comment-list .uk-comment + ul {
     margin: @comment-list-margin-top 0 0 0;
-    padding-left: @comment-list-padding-left;
     list-style: none;
 }
 
 .uk-comment-list > li:nth-child(n+2),
 .uk-comment-list .uk-comment + ul > li:nth-child(n+2) { margin-top: @comment-list-margin-top; }
+
+/* Tablet and bigger */
+@media (min-width: @breakpoint-medium) {
+
+    .uk-comment-list .uk-comment + ul { padding-left: @comment-list-padding-left; }
+
+}
+
+
+/* Modifier `uk-comment-primary`
+ ========================================================================== */
+
+.uk-comment-primary {
+    .hook-comment-primary;
+}
 
 
 // Hooks
@@ -123,8 +148,11 @@
 
 .hook-comment-misc;
 
+.hook-comment() {}
 .hook-comment-header() {}
 .hook-comment-avatar() {}
 .hook-comment-title() {}
 .hook-comment-meta() {}
+.hook-comment-body() {}
+.hook-comment-primary() {}
 .hook-comment-misc() {}

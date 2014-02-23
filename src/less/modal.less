@@ -19,7 +19,7 @@
 // Variables
 // ========================================================================
 
-@modal-z-index:                                 1020;
+@modal-z-index:                                 1010;
 @modal-background:                              rgba(0,0,0,0.6);
 
 @modal-dialog-padding:                          20px;
@@ -43,7 +43,7 @@
 
 .uk-modal {
     /* 1 */
-    display: none; 
+    display: none;
     /* 2 */
     position: fixed;
     top: 0;
@@ -72,10 +72,17 @@
 .uk-modal.uk-open { opacity: 1; }
 
 /*
- * Prevents dublicated scrollbar caused by 4.
+ * 7. Prevents scrolling for the body content
+ * 8. Prevents duplicated scrollbar caused by 4.
  */
 
-.uk-modal-page { overflow: hidden; }
+.uk-modal-page,
+.uk-modal-page body {
+    /* 7 */
+    height: 100%;
+    /* 8 */
+    overflow: hidden;
+}
 
 
 /* Sub-object: `uk-modal-dialog`
@@ -85,7 +92,7 @@
  * 1. Set position
  * 2. Set box sizing
  * 3. Center dialog box
- * 4. Set style
+ * 4. Style
  */
 
 .uk-modal-dialog {
@@ -105,11 +112,11 @@
     .hook-modal-dialog;
 }
 
-/* Only phones */
+/* Phone landscape and smaller */
 @media (max-width: @breakpoint-small-max) {
 
     /*
-     * Fit the phone width perfectly
+     * Fit in small screen
      */
 
     .uk-modal-dialog {
@@ -183,7 +190,7 @@
     float: none;
 }
 
-/* Only phones */
+/* Phone landscape and smaller */
 @media (max-width: @breakpoint-small-max) {
 
     .uk-modal-dialog-frameless > .uk-close:first-child {

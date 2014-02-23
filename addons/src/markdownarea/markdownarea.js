@@ -1,4 +1,16 @@
-(function(global, $, UI){
+(function(addon) {
+
+    if (typeof define == "function" && define.amd) { // AMD
+        define(["uikit"], function(){
+            return jQuery.UIkit.markdownarea ? jQuery.UIkit.markdownarea : addon(window, window.jQuery, window.jQuery.UIkit);
+        });
+    }
+
+    if(window && window.jQuery && window.jQuery.UIkit) {
+        addon(window, window.jQuery, window.jQuery.UIkit);
+    }
+
+})(function(global, $, UI){
 
     var Markdownarea = function(element, options){
 
@@ -38,18 +50,24 @@
             this.editor.on("change", (function(){
                 var render = function(){
 
-                    var value    = $this.editor.getValue();
+                    var value   = $this.editor.getValue();
 
-                    marked(value, function (err, markdown) {
+                    $this.currentvalue  = String(value);
+
+                    $this.element.trigger("markdownarea-before", [$this]);
+
+                    $this.applyPlugins();
+
+                    marked($this.currentvalue, function (err, markdown) {
 
                       if (err) throw err;
 
                       $this.preview.html(markdown);
-                      $this.element.val(value).trigger("update", [$this]);
+                      $this.element.val($this.currentvalue).trigger("markdownarea-update", [$this]);
                     });
                 };
                 render();
-                return render;
+                return UI.Utils.debounce(render, 150);
             })());
 
             this._buildtoolbar();
@@ -92,6 +110,57 @@
             this.preview.parent().css("height", this.code.height());
         },
 
+        applyPlugins: function(){
+
+            var $this   = this,
+                plugins = Object.keys(Markdownarea.plugins),
+                plgs    = Markdownarea.plugins;
+
+            this.markers = {};
+
+            if(plugins.length) {
+
+                var lines = this.currentvalue.split("\n");
+
+                plugins.forEach(function(name){
+                    this.markers[name] = [];
+                }, this);
+
+                for(var line=0,max=lines.length;line<max;line++) {
+
+                    (function(line){
+                        plugins.forEach(function(name){
+
+                            var i = 0;
+
+                            lines[line] = lines[line].replace(plgs[name].identifier, function(){
+
+                                var replacement =  plgs[name].cb({
+                                    "area" : $this,
+                                    "found": arguments,
+                                    "line" : line,
+                                    "pos"  : i++,
+                                    "uid"  : [name, line, i, (new Date().getTime())+"RAND"+(Math.ceil(Math.random() *100000))].join('-'),
+                                    "replace": function(strwith){
+                                        var src   = this.area.editor.getLine(this.line),
+                                            start = src.indexOf(this.found[0]);
+                                            end   = this.found[0].length;
+
+                                        this.area.editor.replaceRange(strwith, {"line": this.line, "ch":start}, {"line": this.line, "ch":end} );
+                                    }
+                                });
+
+                                return replacement;
+                            });
+                        });
+                    })(line);
+                }
+
+                this.currentvalue = lines.join("\n");
+
+            }
+        },
+
         _buildtoolbar: function(){
 
             if(!(this.options.toolbar && this.options.toolbar.length)) return;
@@ -116,7 +185,7 @@
             this.markdownarea.on("click", "a[data-markdownarea-cmd]", function(){
                 var cmd = $(this).data("markdownareaCmd");
 
-                if(cmd && Markdownarea.commands[cmd] && (!$this.activetab || $this.activetab=="code")) {
+                if(cmd && Markdownarea.commands[cmd] && (!$this.activetab || $this.activetab=="code" || cmd=="fullscreen")) {
                     Markdownarea.commands[cmd].action.apply($this, [$this.editor])
                 }
 
@@ -142,6 +211,9 @@
                                  .filter(this.activetab=="code" ? '.uk-markdown-button-markdown':'.uk-markdown-button-preview').addClass("uk-active");
 
             }
+
+            this.editor.refresh();
+            this.preview.parent().css("height", this.code.height());
 
             this.markdownarea.attr("data-mode", mode);
         },
@@ -301,6 +373,11 @@
                                 '</div>' +
                             '</div>';
 
+    Markdownarea.plugins   = {};
+    Markdownarea.addPlugin = function(name, identifier, callback) {
+        Markdownarea.plugins[name] = {"identifier":identifier, "cb":callback};
+    };
+
     UI["markdownarea"] = Markdownarea;
 
     // init code
@@ -326,4 +403,5 @@
         });
     });
 
-})(window, jQuery, jQuery.UIkit);
+    return Markdownarea;
+});

@@ -14,6 +14,7 @@
 // Variables
 // ========================================================================
 
+@subnav-font-size:                              1rem;
 @subnav-margin:                                 10px;
 @subnav-color:                                  #07D;
 @subnav-hover-color:                            #059;
@@ -21,7 +22,10 @@
 
 @subnav-line-border-height:                     10px;
 @subnav-line-border:                            #ddd;
+@subnav-line-border-width:                      1px;
 
+@subnav-pill-padding-vertical:                  3px;
+@subnav-pill-padding-horizontal:                9px;
 @subnav-pill-hover-background:                  #eee;
 @subnav-pill-hover-color:                       #444;
 @subnav-pill-active-background:                 #00a8e6;
@@ -42,7 +46,7 @@
     padding: 0;
     list-style: none;
     /* 2 */
-    letter-spacing: -0.31em;
+    font-size: 0.01px;
 }
 
 
@@ -55,8 +59,11 @@
  */
 
 .uk-subnav > li {
-    position: relative; /* 1 */
-    letter-spacing: normal; /* 2 */
+    /* 1 */
+    position: relative;
+    /* 2 */
+    font-size: @subnav-font-size;
+    vertical-align: top;
 }
 
 .uk-subnav > li,
@@ -69,15 +76,37 @@
  * Items
  */
 
-.uk-subnav > li > a { color: @subnav-color; }
-.uk-subnav > li > a:hover { color: @subnav-hover-color; }
+.uk-subnav > li > a,
+.uk-subnav > li > span {
+    .hook-subnav-item;
+}
 
+.uk-subnav > li > a {
+    color: @subnav-color;
+    .hook-subnav-link;
+}
+
+.uk-subnav > li > a:hover {
+    color: @subnav-hover-color;
+    .hook-subnav-link-hover;
+}
+
+/*
+ * Active
+ */
+
+.uk-subnav > li.uk-active > a {
+    .hook-subnav-active;
+}
 
 /*
  * Disabled
  */
 
-.uk-subnav > li > span { color: @subnav-disabled-color; }
+.uk-subnav > li > span {
+    color: @subnav-disabled-color;
+    .hook-subnav-disabled;
+}
 
 
 /* Modifier: 'subnav-line'
@@ -88,7 +117,7 @@
     display: inline-block;
     height: @subnav-line-border-height;
     margin-right: @subnav-margin;
-    border-left: 1px solid @subnav-line-border;
+    border-left: @subnav-line-border-width solid @subnav-line-border;
     .hook-subnav-line-divider;
 }
 
@@ -98,7 +127,7 @@
 
 .uk-subnav-pill > li > a,
 .uk-subnav-pill > li > span {
-    padding: 3px 9px;
+    padding: @subnav-pill-padding-vertical @subnav-pill-padding-horizontal;
     text-decoration: none;
     .hook-subnav-pill;
 }
@@ -110,10 +139,11 @@
  */
 
 .uk-subnav-pill > li > a:hover,
-.uk-subnav-pill > li > a:focus { /* 1 */
+.uk-subnav-pill > li > a:focus { // 1
     background: @subnav-pill-hover-background;
     color: @subnav-pill-hover-color;
-    outline: none; /* 2 */
+    /* 2 */
+    outline: none;
     .hook-subnav-pill-hover;
 }
 
@@ -134,6 +164,11 @@
 
 .hook-subnav-misc;
 
+.hook-subnav-item() {}
+.hook-subnav-link() {}
+.hook-subnav-link-hover() {}
+.hook-subnav-active() {}
+.hook-subnav-disabled() {}
 .hook-subnav-line-divider() {}
 .hook-subnav-pill() {}
 .hook-subnav-pill-hover() {}

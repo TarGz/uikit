@@ -4,10 +4,12 @@
 
     window.less = { env: "development" };
 
+    document.writeln('<script src="../../vendor/holder.js"></script>');
     document.writeln('<script src="../../vendor/less.js"></script>');
     document.writeln('<script src="../../vendor/jquery.less.js"></script>');
     document.writeln('<script src="../../vendor/jquery.rtl.js"></script>');
     document.writeln('<script src="../../src/js/core.js"></script>');
+    document.writeln('<script src="../../src/js/utility.js"></script>');
     document.writeln('<script src="../../src/js/alert.js"></script>');
     document.writeln('<script src="../../src/js/button.js"></script>');
     document.writeln('<script src="../../src/js/dropdown.js"></script>');
@@ -64,10 +66,9 @@
             "utility"
         ],
         themes = {
-            "Default":"../../themes/default/uikit/uikit.less",
+            "Default":"../../themes/default/default/uikit.less",
             "Almost Flat":"../../themes/default/almost-flat/uikit.less",
-            "Gradient":"../../themes/default/gradient/uikit.less",
-            "UIkit": "../less/uikit.less"
+            "Gradient":"../../themes/default/gradient/uikit.less"
         },
         theme      = localStorage["uikit.theme"] || 'Default',
         direction  = localStorage["uikit.direction"] || 'ltr';
