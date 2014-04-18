@@ -1693,6 +1693,10 @@ ul.uk-nav-sub {
  */
 .uk-nav-side > li > a {
   color: #444444;
+  border-bottom: solid;
+  border-bottom: 1px dashed #efefef;
+  border-top: solid;
+  border-top: 1px dashed #efefef;
 }
 /*
  * Hover
@@ -6713,6 +6717,9 @@ h6 {
 /*
  * Alert
  */
+.uk-offcanvas-page {
+  margin-left: 0 !important;
+}
 /*
  * Text
  */
