@@ -30,12 +30,13 @@
 
 // ==
 @navbar-background            :rgba(0, 0, 0, 0);
-@navbar-nav-hover-background  :@ri_white;
-@navbar-nav-active-background :@ri_white;
-@navbar-nav-onclick-background:@ri_white;
+@navbar-nav-hover-background  :rgba(0, 0, 0, 0);
+@navbar-nav-active-background :rgba(0, 0, 0, 0);
+@navbar-nav-onclick-background:rgba(0, 0, 0, 0);
 @navbar-nav-font-family: Open Sans;
 @navbar-nav-font-weight: 400;
 @navbar-nav-padding-horizontal:8px;
+
 
 
 .uk-navbar-nav > li > a[href='#'] { cursor: pointer; }
@@ -44,15 +45,15 @@
 // ========================================================================
 
 .hook-navbar() {
-	background:rgba(0, 0, 0, 0);
+	// background:rgba(0, 0, 0, 0);
 }
 
 .hook-navbar-nav-hover(){
-	border-bottom: 2px dashed @ri_pink;
+	// border-bottom: 2px dashed @ri_pink;
 }
 
 .hook-navbar-nav-active(){
-	border-bottom: 2px dashed @ri_pink;
+	// border-bottom: 2px dashed @ri_pink;
 }
 
 // Sub-object: `uk-navbar-nav`
