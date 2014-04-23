@@ -19,14 +19,25 @@
 
 
 //===
-@dropdown-background:                           #fff;
-@dropdown-navbar-background:                    #fff;
-@dropdown-search-background:                    #fff;
+@dropdown-background:                           #ffffff;
+@dropdown-navbar-background:                    #ffffff;
+@dropdown-search-background:                    #ffffff;
+
+
+
+@dropdown-animation: uk-fade;
+@dropdown-navbar-animation: uk-slide-bottom-fixed;
+@dropdown-margin-top:0px;
+
 
 // Component
 // ========================================================================
 
-.hook-dropdown() {}
+.hook-dropdown() {
+	border-bottom:2px dashed #efefef;
+	border-left:2px dashed #efefef;
+	border-right:2px dashed #efefef;
+}
 
 
 // Modifier: `uk-dropdown-navbar`

@@ -1876,7 +1876,7 @@ ul.uk-nav-sub {
 .uk-nav-offcanvas > .uk-open > a,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:hover,
 html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
-  background: #7d7eb0;
+  background: #404040;
   color: #ffffff;
   /* 2 */
   outline: none;
@@ -1887,7 +1887,7 @@ html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
  * `html .uk-nav` needed for higher specificity to override hover
  */
 html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
-  background: #55568b;
+  background: #1a1a1a;
   color: #ffffff;
   color: #fc0580;
 }
@@ -1905,7 +1905,7 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
  * Sub-object: `uk-nav-divider`
  */
 .uk-nav-offcanvas .uk-nav-divider {
-  border-top: 1px solid #55568b;
+  border-top: 1px solid #1a1a1a;
 }
 /*
  * Nested items
@@ -1921,10 +1921,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Navbar
  ========================================================================== */
 .uk-navbar {
-  background: #ffffff;
   color: #444444;
   background: rgba(0, 0, 0, 0);
-  border-bottom: 0px dashed #efefef;
 }
 /*
  * Micro clearfix
@@ -1998,16 +1996,18 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   color: #fc0580;
   /* 3 */
   outline: none;
+  border-bottom: 2px dashed #fc0580;
 }
 /* OnClick */
 .uk-navbar-nav > li > a:active {
-  background-color: ri_white;
+  background-color: #ffffff;
   color: #514796;
 }
 /* Active */
 .uk-navbar-nav > li.uk-active > a {
-  background-color: ri_white;
+  background-color: #ffffff;
   color: #fc0580;
+  border-bottom: 2px dashed #fc0580;
 }
 /* Sub-objects: `uk-navbar-nav-subtitle`
  ========================================================================== */
@@ -2861,7 +2861,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-form input[type="search"]:focus,
 .uk-form input[type="tel"]:focus,
 .uk-form input[type="color"]:focus {
-  border-color: #a9a3d3;
+  border-color: rgba(169, 163, 211, 0.4);
   outline: 0;
   background: #fafbfc;
   color: #444444;
@@ -5590,13 +5590,16 @@ input.uk-search-field {
   box-sizing: border-box;
   /* 4 */
   width: 200px;
-  margin-top: 5px;
+  margin-top: 0px;
   padding: 15px;
   background: #ffffff;
   color: #444444;
   /* 5 */
   font-size: 1rem;
   vertical-align: top;
+  border-bottom: 2px dashed #efefef;
+  border-left: 2px dashed #efefef;
+  border-right: 2px dashed #efefef;
 }
 /*
  * 1. Show dropdown
@@ -5629,7 +5632,7 @@ input.uk-search-field {
   top: auto;
   bottom: 100%;
   margin-top: auto;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 /* Nav in dropdown
  ========================================================================== */
@@ -5733,8 +5736,8 @@ input.uk-search-field {
   color: #444444;
 }
 .uk-open > .uk-dropdown-navbar {
-  -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
-  animation: uk-slide-top-fixed 0.2s ease-in-out;
+  -webkit-animation: uk-slide-bottom-fixed 0.2s ease-in-out;
+  animation: uk-slide-bottom-fixed 0.2s ease-in-out;
 }
 /* Modifier: `uk-dropdown-search`
  ========================================================================== */
@@ -5919,7 +5922,7 @@ input.uk-search-field {
   left: 0;
   z-index: 1010;
   /* 3 */
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.64);
 }
 .uk-offcanvas.uk-active {
   display: block;
@@ -5959,7 +5962,7 @@ input.uk-search-field {
   /* 2 */
   width: 270px;
   max-width: 100%;
-  background: #6d6ea6;
+  background: #333333;
   /* 3 */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -6006,7 +6009,7 @@ input.uk-search-field {
 .uk-offcanvas .uk-search-field {
   width: 100%;
   border-color: rgba(0, 0, 0, 0);
-  background: #55568b;
+  background: #1a1a1a;
   color: #ffffff;
 }
 .uk-offcanvas .uk-search-field:-ms-input-placeholder {

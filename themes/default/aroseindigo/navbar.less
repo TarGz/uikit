@@ -29,10 +29,10 @@
 
 
 // ==
-@navbar-background            :@ri_white;
+@navbar-background            :rgba(0, 0, 0, 0);
 @navbar-nav-hover-background  :@ri_white;
-@navbar-nav-active-background :ri_white;
-@navbar-nav-onclick-background:ri_white;
+@navbar-nav-active-background :@ri_white;
+@navbar-nav-onclick-background:@ri_white;
 @navbar-nav-font-family: Open Sans;
 @navbar-nav-font-weight: 400;
 @navbar-nav-padding-horizontal:8px;
@@ -45,9 +45,15 @@
 
 .hook-navbar() {
 	background:rgba(0, 0, 0, 0);
-	border-bottom: 0px dashed #efefef;
 }
 
+.hook-navbar-nav-hover(){
+	border-bottom: 2px dashed @ri_pink;
+}
+
+.hook-navbar-nav-active(){
+	border-bottom: 2px dashed @ri_pink;
+}
 
 // Sub-object: `uk-navbar-nav`
 // ========================================================================
