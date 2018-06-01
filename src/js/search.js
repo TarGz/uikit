@@ -285,11 +285,8 @@
         resultsHeaderClass: 'uk-nav-header',
         moreResultsClass: 'uk-search-moreresults',
         noResultsClass: '',
-        msgResultsHeader: 'Search Results',
-        msgMoreResults: 'More Results',
-        msgNoResults: 'No results found'
+        msgNoResults: 'Aucuns de résultats'
     };
-
     Search.addRenderer("default", DefaultRenderer);
 
     UI["search"] = Search;
